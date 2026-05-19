@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Registration (Desktop) – Pesta Sukan 2026</title>
+  <link rel="stylesheet" href="shared/styles.css">
+  <style>
+    body {
+      background: #fff;
+    }
+
+    .d-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 32px;
+      border-bottom: 1px solid var(--color-border-light);
+      background: #fff;
+    }
+
+    .d-nav__logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: #DB0000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .d-nav__logo-icon {
+      font-size: 20px;
+    }
+
+    .d-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--color-text-medium);
+    }
+
+    .d-nav__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-medium);
+    }
+
+    .d-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--color-border-light);
+      background: #fff;
+      position: relative;
+    }
+
+    .d-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .d-header__back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--color-text-dark);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .d-header__title {
+      font-size: 14px;
+      color: var(--color-text-light);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .d-header__close {
+      border: none;
+      background: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--color-text-dark);
+    }
+
+    .d-form {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 32px 24px 120px;
+    }
+
+    .d-progress {
+      display: flex;
+      gap: 0;
+      margin-bottom: 8px;
+    }
+
+    .d-progress__seg {
+      flex: 1;
+      height: 4px;
+      background: var(--color-progress-inactive);
+    }
+
+    .d-progress__seg.active {
+      background: var(--color-progress-active);
+    }
+
+    .d-progress__seg+.d-progress__seg {
+      margin-left: 4px;
+    }
+
+    .d-progress-labels {
+      display: flex;
+      margin-bottom: 24px;
+    }
+
+    .d-progress-label {
+      flex: 1;
+      font-size: 13px;
+      color: var(--color-text-light);
+      padding-top: 8px;
+    }
+
+    .d-progress-label.active {
+      color: var(--color-text-dark);
+      font-weight: 600;
+    }
+
+    .d-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid var(--color-border-light);
+      padding: 12px 32px;
+      z-index: 200;
+    }
+
+    .d-footer__inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .d-sp {
+      cursor: pointer;
+    }
+
+    .d-sp__top {
+      background: #fff;
+    }
+
+    .d-sp__main {
+      background: linear-gradient(135deg, #E8E8E8 25%, #D8D8D8 25%, #D8D8D8 50%, #E8E8E8 50%, #E8E8E8 75%, #D8D8D8 75%);
+      background-size: 40px 40px;
+      min-height: 500px;
+      display: flex;
+      padding: 60px 80px;
+      position: relative;
+    }
+
+    .d-sp__left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 80px;
+    }
+
+    .d-sp__right {
+      width: 340px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      align-self: center;
+    }
+
+    .d-sp__footer {
+      background: #333;
+      color: #ccc;
+      padding: 24px 80px;
+      font-size: 13px;
+    }
+
+    .d-summary-header {
+      background: var(--color-bg-light);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .d-summary-body {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="desktop-app">
+
+    <!-- ========== SCREEN -2: EMAIL (Desktop) ========== -->
+    <div class="screen active" id="desktop-email-intro" style="padding:0">
+      <img src="shared/DesktopPSEmail01.png" style="width:100%;display:block">
+      <div style="position:relative">
+        <img src="shared/DesktopPSEmail02.png" style="width:100%;display:block;margin-top:-1px">
+        <div onclick="PS.goTo('desktop-page-intro')"
+          style="position:absolute;left:47%;width:12%;top:23%;height:8%;cursor:pointer;z-index:10"></div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN -1: PAGE/WEBSITE (Desktop) ========== -->
+    <div class="screen" id="desktop-page-intro" style="padding:0">
+      <img src="shared/DesktopPSPage01.png" style="width:100%;display:block">
+      <div style="position:relative">
+        <img src="shared/DesktopPSPage02.png" style="width:100%;display:block;margin-top:-1px">
+        <div onclick="PS.goTo('sports-list-desktop')"
+          style="position:absolute;left:6.5%;width:20.5%;top:3%;height:21%;cursor:pointer;z-index:10"></div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 0A: SPORTS LIST (Desktop) ========== -->
+    <div class="screen" id="sports-list-desktop" style="padding:0">
+      <div style="position:relative">
+        <img src="shared/PestaDesktop01.png" style="width:100%;display:block">
+        <div onclick="PS.goTo('sport-pickleball-desktop')"
+          style="position:absolute;top:61%;left:51%;width:21%;height:19.85%;cursor:pointer;z-index:10"></div>
+      </div>
+
+      <img src="shared/PestaDesktop02.png" style="width:100%;display:block;margin-top:-1px">
+
+      <img src="shared/PestaDesktop03.png" style="width:100%;display:block;margin-top:-1px">
+    </div>
+
+    <!-- ========== SCREEN 0B: BASKETBALL SPORT PAGE (Desktop) ========== -->
+    <div class="screen" id="sport-pickleball-desktop" style="padding:0">
+      <div style="position:relative">
+        <img src="shared/BasketballDesktop.png" style="width:100%;display:block">
+        <div onclick="PS.goTo('pickleball-categories-desktop')"
+          style="position:absolute;top:83.5%;left:48%;width:26%;height:3.5%;cursor:pointer;z-index:10"></div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 0C: PICKLEBALL CATEGORIES (Desktop) ========== -->
+    <div class="screen" id="pickleball-categories-desktop" style="padding:0;background:#fff">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div><span>A Singapore Government Agency Website</span><a
+          class="gov-masthead__link">How to identify &#8744;</a>
+      </div>
+      <div class="d-nav">
+        <div class="d-nav__logo"><span class="d-nav__logo-icon">&#9917;</span> PESTA SUKAN</div>
+        <div class="d-nav__links"><span>Your Games</span>
+          <div class="d-nav__avatar">T</div>
+        </div>
+      </div>
+
+      <!-- Sport header -->
+      <div
+        style="background:#f5f5f5;padding:40px 48px 32px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:14px;color:var(--color-text-light);margin-bottom:6px">Pesta Sukan 2026</div>
+          <h1
+            style="font-size:44px;font-weight:900;color:var(--color-text-dark);letter-spacing:2px;text-transform:uppercase;margin:0">
+            BASKETBALL</h1>
+        </div>
+        <div
+          style="width:80px;height:64px;background:#d0d0d0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0">
+          &#9968;</div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div
+        style="padding:14px 48px;border-bottom:1px solid var(--color-border-light);font-size:13px;color:var(--color-text-light);display:flex;gap:8px;align-items:center">
+        <span style="cursor:pointer" onclick="PS.goTo('sports-list-desktop')">GetActive Singapore</span>
+        <span>&#8250;</span><span style="cursor:pointer" onclick="PS.goTo('sports-list-desktop')">Pesta Sukan</span>
+        <span>&#8250;</span><span style="cursor:pointer" onclick="PS.goTo('sport-pickleball-desktop')">Sports</span>
+        <span>&#8250;</span><span style="font-weight:500;color:var(--color-text-dark)">Basketball</span>
+      </div>
+
+      <!-- Main layout -->
+      <div style="display:flex;max-width:1280px;margin:0 auto;padding:0 48px">
+
+        <!-- Left sidebar -->
+        <div style="width:280px;flex-shrink:0;padding-top:32px;padding-right:28px">
+          <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden">
+            <!-- Card header -->
+            <div
+              style="padding:16px 20px;border-bottom:1px solid var(--color-border-light);display:flex;justify-content:space-between;align-items:center;background:#fff">
+              <span style="font-size:17px;font-weight:700;color:var(--color-text-dark)">Filters</span>
+              <button onclick="dClearFilters()"
+                style="background:none;border:none;font-size:15px;color:var(--color-text-light);cursor:pointer;padding:0">Clear</button>
+            </div>
+
+            <!-- Format -->
+            <div>
+              <div
+                style="padding:16px 20px;border-bottom:1px solid var(--color-border-light);display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#fff"
+                onclick="dToggleGroup('d-fmt-body',this)">
+                <span style="font-weight:700;font-size:16px;color:var(--color-text-dark)">Format</span>
+                <span style="font-size:14px;transition:transform 0.2s" class="d-grp-chevron">&#8743;</span>
+              </div>
+              <div id="d-fmt-body"
+                style="padding:16px 20px;background:var(--color-bg-light);border-bottom:1px solid var(--color-border-light)">
+                <div onclick="dSelectAll('format')"
+                  style="font-size:13px;color:var(--color-text-light);cursor:pointer;margin-bottom:12px">Select all
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <button class="d-filter-chip" data-dgroup="format" data-dvalue="3X3"
+                    onclick="dToggleChip(this)">3X3</button>
+                  <button class="d-filter-chip" data-dgroup="format" data-dvalue="5v5"
+                    onclick="dToggleChip(this)">5v5</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <div
+                style="padding:16px 20px;border-bottom:1px solid var(--color-border-light);display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#fff"
+                onclick="dToggleGroup('d-cat-body',this)">
+                <span style="font-weight:700;font-size:16px;color:var(--color-text-dark)">Category</span>
+                <span style="font-size:14px;transition:transform 0.2s" class="d-grp-chevron">&#8743;</span>
+              </div>
+              <div id="d-cat-body"
+                style="padding:16px 20px;background:var(--color-bg-light);border-bottom:1px solid var(--color-border-light)">
+                <div onclick="dSelectAll('category')"
+                  style="font-size:13px;color:var(--color-text-light);cursor:pointer;margin-bottom:12px">Select all
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <button class="d-filter-chip" data-dgroup="category" data-dvalue="Open"
+                    onclick="dToggleChip(this)">Open</button>
+                  <button class="d-filter-chip" data-dgroup="category" data-dvalue="Masters"
+                    onclick="dToggleChip(this)">Masters</button>
+                  <button class="d-filter-chip" data-dgroup="category" data-dvalue="Youth"
+                    onclick="dToggleChip(this)">Youth</button>
+                  <button class="d-filter-chip" data-dgroup="category" data-dvalue="Corporate"
+                    onclick="dToggleChip(this)">Corporate</button>
+                  <button class="d-filter-chip" data-dgroup="category" data-dvalue="Wheelchair"
+                    onclick="dToggleChip(this)">Wheelchair</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gender -->
+            <div>
+              <div
+                style="padding:16px 20px;border-bottom:1px solid var(--color-border-light);display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#fff"
+                onclick="dToggleGroup('d-gen-body',this)">
+                <span style="font-weight:700;font-size:16px;color:var(--color-text-dark)">Gender</span>
+                <span style="font-size:14px;transition:transform 0.2s" class="d-grp-chevron">&#8743;</span>
+              </div>
+              <div id="d-gen-body" style="padding:16px 20px;background:var(--color-bg-light)">
+                <div onclick="dSelectAll('gender')"
+                  style="font-size:13px;color:var(--color-text-light);cursor:pointer;margin-bottom:12px">Select all
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <button class="d-filter-chip" data-dgroup="gender" data-dvalue="Men's"
+                    onclick="dToggleChip(this)">Men's</button>
+                  <button class="d-filter-chip" data-dgroup="gender" data-dvalue="Women's"
+                    onclick="dToggleChip(this)">Women's</button>
+                  <button class="d-filter-chip" data-dgroup="gender" data-dvalue="Boys'"
+                    onclick="dToggleChip(this)">Boys'</button>
+                  <button class="d-filter-chip" data-dgroup="gender" data-dvalue="Girls'"
+                    onclick="dToggleChip(this)">Girls'</button>
+                  <button class="d-filter-chip" data-dgroup="gender" data-dvalue="Mixed"
+                    onclick="dToggleChip(this)">Mixed</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event grid -->
+        <div style="flex:1;padding:32px 0 32px 32px">
+          <div id="d-event-count" style="font-size:14px;color:var(--color-text-light);margin-bottom:16px">Showing 22
+            events</div>
+          <div id="d-pickleball-event-list" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="d-event-card" data-dtitle="Boys' Youth 10 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 10
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Boys' Youth 12 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 12
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Boys' Youth 14 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 14
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Boys' Youth 16 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 16
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Boys' Youth 18 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 18
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Boys' Youth 23 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth 23
+                5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$90.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 10 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                10 3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 12 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                12 3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 14 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                14 3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 16 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                16 3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 18 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                18 3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Clementi Sport Hall
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Girls' Youth 23 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth
+                23 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$90.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Open 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Open 3X3
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$45.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Open 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Open 5v5
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Corporate 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's
+                Corporate 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Masters 40 &amp; Above 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Masters
+                40 &amp; Above 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Masters 45 &amp; Above 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Masters
+                45 &amp; Above 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Men's Masters 50 &amp; Above 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Masters
+                50 &amp; Above 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Women's Open 3X3"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Open
+                3X3</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$45.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card d-event-card--clickable" data-dtitle="Women's Open 5v5"
+              onclick="PS.goTo('event-page')"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff;cursor:pointer">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Open
+                5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Women's Masters 35 &amp; Above 5v5"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's
+                Masters 35 &amp; Above 5v5</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+            <div class="d-event-card" data-dtitle="Mixed Wheelchair 3X3 (Inclusive Sport)"
+              style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+              <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed
+                Wheelchair 3X3 (Inclusive Sport)</div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+                <span>&#128197;</span>20 Jun – 2 Aug 2026
+              </div>
+              <div
+                style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+                <span>&#128205;</span>Sengkang Sports Centre
+              </div>
+              <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+                  style="color:var(--color-text-light)">per team</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div
+        style="background:#f5f5f5;padding:40px 48px 24px;margin-top:40px;border-top:1px solid var(--color-border-light)">
+        <div style="font-size:22px;font-weight:900;color:#cc0000;letter-spacing:1px;margin-bottom:24px">&#9917; PESTA
+          SUKAN</div>
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--color-text-light);padding-top:16px;border-top:1px solid var(--color-border-light)">
+          <div style="display:flex;gap:20px"><span style="cursor:pointer">Privacy Statement</span><span
+              style="cursor:pointer">Terms of Use</span><span style="cursor:pointer">Report Vulnerability
+              &#8599;</span>
+          </div>
+          <span>&#169; 2026 GMS, Government of Singapore. Last updated 12 May 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 1: EVENT DETAILS (Desktop) ========== -->
+    <div class="screen" id="event-page">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div><span>A Singapore Government Agency Website</span><a
+          class="gov-masthead__link">How to identify &#8744;</a>
+      </div>
+
+      <div class="d-nav">
+        <div class="d-nav__logo"><span class="d-nav__logo-icon">&#9917;</span> PESTA SUKAN</div>
+        <div class="d-nav__links">
+          <span style="border-bottom:3px solid var(--color-text-dark);padding-bottom:14px">Explore</span>
+          <span>Your Games</span>
+          <div class="d-nav__avatar">T</div>
+        </div>
+      </div>
+
+      <!-- Dark hero -->
+      <div style="background:linear-gradient(180deg, #888 0%, #777 40%, #555 100%);padding:0 0 28px">
+        <div style="max-width:560px;margin:0 auto;padding:0 24px">
+          <div style="padding:16px 0"><button
+              style="border:none;background:none;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:6px"
+              data-back>&#8592; Back</button></div>
+          <div style="padding:60px 0 0">
+            <div style="font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#fff">
+              BASKETBALL</div>
+            <div style="font-size:32px;font-weight:700;color:#fff;margin-top:4px;line-height:1.2">5v5 Women's Open
+            </div>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)"><span>&#128197;</span>
+                <div>
+                  <div style="font-size:12px;opacity:0.7">Tournament dates</div>
+                  <div style="font-size:14px;color:#fff">20 June – 2 August 2026</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)"><span>&#128205;</span>
+                <div>
+                  <div style="font-size:12px;opacity:0.7">Venue</div>
+                  <div style="font-size:14px;color:#fff">Clementi Sport Hall</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:560px;margin:0 auto;padding:24px">
+        <h2 style="font-size:20px;font-weight:600;margin-bottom:12px">Team eligibility</h2>
+        <div style="font-size:14px;font-weight:600;color:var(--color-text-medium);margin-bottom:8px">Your team must
+          have:</div>
+        <ul class="eligibility-list" style="margin-bottom:16px">
+          <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>9 to 15
+              members</span>
+          </li>
+          <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>At least 70%
+              Singapore
+              citizens or permanent residents</span></li>
+        </ul>
+        <div style="font-size:14px;font-weight:600;color:var(--color-text-medium);margin-bottom:8px">Each member must
+          be:</div>
+        <ul class="eligibility-list" style="margin-bottom:24px">
+          <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>Female</span></li>
+          <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>At least 13 years old
+              this year</span></li>
+          <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>A Singapore citizen,
+              permanent resident or foreigner with valid pass</span></li>
+        </ul>
+
+        <hr class="divider">
+
+        <h2 style="font-size:20px;font-weight:600;margin-bottom:16px">Next steps</h2>
+        <div class="timeline-step" style="padding:0">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot timeline-step__dot--filled"></div>
+            <div class="timeline-step__line"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Register team and pay</div>
+            <div class="timeline-step__pills"><span class="pill">By 23 May 2026</span></div>
+            <div class="timeline-step__desc">Only one person needs to register and pay for the team. This person will
+              be
+              the team manager.</div>
+          </div>
+        </div>
+        <div class="timeline-step" style="padding:0">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot"></div>
+            <div class="timeline-step__line"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Add members to team</div>
+            <div class="timeline-step__pills"><span class="pill pill--warning">By 14 June 2026</span></div>
+            <div class="timeline-step__desc">Invite members via join link or enter their details manually. Each member
+              must acknowledge the indemnity form.</div>
+          </div>
+        </div>
+        <div class="timeline-step" style="padding:0">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot"></div>
+            <div class="timeline-step__line"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Attend team manager's meeting</div>
+            <div class="timeline-step__desc">Date to be announced.</div>
+          </div>
+        </div>
+        <div class="timeline-step" style="padding:0">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Play!</div>
+            <div class="timeline-step__desc">Schedule will be released after team manager's meeting.</div>
+          </div>
+        </div>
+
+        <hr class="divider" style="margin-top:24px">
+
+        <h2 style="font-size:20px;font-weight:600;margin-bottom:12px">Rules & regulations</h2>
+        <div class="rules-card">
+          <div>
+            <div class="rules-card__name">View Basketball Rules and Regulations</div>
+            <div class="rules-card__date">PDF updated 9 Apr 2026, 4:27 pm</div>
+          </div><span class="rules-card__arrow">&#8594;</span>
+        </div>
+      </div>
+
+      <div style="height:100px"></div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div><span style="font-size:22px;font-weight:600">$135.00</span> <span
+                style="font-size:14px;color:var(--color-text-light)">per team</span>
+              <div style="font-size:13px;color:var(--color-text-light)">Register by 23 May 2026</div>
+            </div>
+            <span class="pill">6 spots left</span>
+          </div>
+          <button class="btn btn--primary" data-goto="singpass-screen">Log in with Singpass to register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 1: SINGPASS (Desktop) ========== -->
+    <div class="screen" id="singpass-screen" style="cursor:pointer" onclick="PS.goTo('form-step1')">
+      <img src="shared/singpass-desktop.png" alt="Singpass Login" style="width:100%;display:block">
+    </div>
+
+    <!-- ========== SCREEN 2: FORM STEP 1 – TEAM DETAILS ========== -->
+    <div class="screen" id="form-step1">
+      <div class="d-header">
+        <span class="d-header__title">Pesta Sukan 2026</span>
+        <div class="d-header__inner">
+          <button class="d-header__back" data-back>&#8592; Back</button>
+          <button class="d-header__close" data-goto="event-page">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="d-form">
+        <div class="d-progress">
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg"></div>
+          <div class="d-progress__seg"></div>
+        </div>
+        <div class="d-progress-labels">
+          <div class="d-progress-label active">Team details</div>
+          <div class="d-progress-label">Review</div>
+          <div class="d-progress-label">Payment</div>
+        </div>
+
+        <h1 style="font-size:28px;font-weight:700;margin-bottom:24px">Register your team</h1>
+
+        <div class="event-summary" style="margin:0 0 24px">
+          <div class="event-summary__sport">BASKETBALL</div>
+          <div class="event-summary__name">5v5 Women's Open</div>
+          <div class="event-summary__details">
+            <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128197;</span><span>28 June
+                –
+                3 August 2026</span></div>
+            <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128205;</span><span>Clementi
+                Sport Hall</span></div>
+          </div>
+          <div class="event-summary__price">$135.00 per team</div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 24px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Team manager details</h2><span class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" data-required>
+              <label class="form-label">Name of team manager</label>
+              <input type="text" class="form-input form-input--readonly" value="Darren Ho Jun Le" readonly
+                data-field="manager-name">
+            </div>
+            <div class="form-group" data-required>
+              <label class="form-label">Mobile number</label>
+              <div class="form-input-wrapper"><input type="tel" class="form-input" value="98566923"
+                  data-field="manager-mobile"><button class="form-clear">&#10005;</button></div>
+              <div class="form-error">This field is required</div>
+            </div>
+            <div class="form-group" data-required>
+              <label class="form-label">Email address</label>
+              <div class="form-input-wrapper"><input type="email" class="form-input" value="darrenho@email.com"
+                  data-field="manager-email"><button class="form-clear">&#10005;</button></div>
+              <div class="form-error">This field is required</div>
+            </div>
+            <div class="alert-box">
+              <div class="alert-box__icon">i</div>
+              <div class="alert-box__text">As team manager, you'll register, pay, and add members to your team.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 24px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Team details</h2><span class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" data-required>
+              <label class="form-label">Team name</label>
+              <input type="text" class="form-input" placeholder="" data-field="team-name">
+              <div class="form-error">This field is required</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Jersey colour – Light</label>
+              <div class="form-helper">Light coloured jersey is used for home matches</div>
+              <input type="text" class="form-input" placeholder="White" data-field="jersey-light">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Jersey colour – Dark</label>
+              <div class="form-helper">Dark coloured jersey is used for away matches</div>
+              <input type="text" class="form-input" placeholder="Dark blue" data-field="jersey-dark">
+            </div>
+
+            <div class="upload-zone" id="jersey-upload">
+              <div class="upload-zone__title">Upload picture(s) of your light and dark coloured jerseys</div>
+              <div class="upload-zone__subtitle">Both jerseys can be in a single photo.</div>
+              <div class="upload-info">
+                Maximum size per file: 2 MB<br>
+                Supported file types: .JPG, .JPEG, .PNG
+              </div>
+              <div id="jersey-file-list" style="display:none">
+                <div class="upload-file-card">
+                  <span class="upload-file-card__name">light and dark jersey.jpeg</span>
+                  <span class="upload-file-card__size">321 KB</span>
+                  <button class="upload-file-card__remove" onclick="removeJerseyFile()">
+                    <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+                      <path
+                        d="M1 4h12M4.5 4V2.5a1 1 0 011-1h3a1 1 0 011 1V4M5.5 7v4.5M8.5 7v4.5M2.5 4l.5 9a1.5 1.5 0 001.5 1.5h5A1.5 1.5 0 0011 13l.5-9"
+                        stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="upload-zone__actions">
+                <button class="btn btn--secondary" style="width:auto" onclick="simulateJerseyUpload()">Upload
+                  files</button>
+                <span class="upload-zone__drop-hint">or drop them here</span>
+              </div>
+              <div class="upload-zone__error" id="jersey-upload-error">You need to upload at least 1 picture of your
+                team's light and dark coloured jerseys.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <div class="sticky-footer__timer" id="timer-form1">Holding your slot for 10:00 mins</div>
+          <button class="btn btn--primary" onclick="handleStep1Continue()">Continue to review</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 3: REVIEW ========== -->
+    <div class="screen" id="form-review">
+      <div class="d-header">
+        <span class="d-header__title">Pesta Sukan 2026</span>
+        <div class="d-header__inner">
+          <button class="d-header__back" data-back>&#8592; Back</button>
+          <button class="d-header__close" data-goto="event-page">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="d-form">
+        <div class="d-progress">
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg"></div>
+        </div>
+        <div class="d-progress-labels">
+          <div class="d-progress-label active">Team details</div>
+          <div class="d-progress-label active">Review</div>
+          <div class="d-progress-label">Payment</div>
+        </div>
+
+        <h1 style="font-size:28px;font-weight:700;margin-bottom:24px">Review team details</h1>
+
+        <div class="section-box" style="margin:0 0 24px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Team manager details</h2><span class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group mb-8"><label class="form-label">Name of team manager</label>
+              <div class="form-readonly" data-review="manager-name">Darren Ho Jun Le</div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+              <div class="form-readonly" data-review="manager-mobile">98566923</div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Email address</label>
+              <div class="form-readonly" data-review="manager-email">darrenho@email.com</div>
+            </div>
+            <div class="alert-box" style="margin-top:16px">
+              <div class="alert-box__icon">i</div>
+              <div class="alert-box__text">As team manager, you'll register, pay, and add members to your team.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 24px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Team details</h2><span class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" style="margin-bottom:24px"><label class="form-label">Team name</label>
+              <div class="form-readonly" data-review="team-name">Input text</div>
+            </div>
+            <div class="form-group" style="margin-bottom:24px"><label class="form-label">Jersey colour – Light</label>
+              <div class="form-helper">Light coloured jersey is used for home matches</div>
+              <div class="form-readonly" data-review="jersey-light">Input text</div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+              <div class="form-helper">Dark coloured jersey is used for away matches</div>
+              <div class="form-readonly" data-review="jersey-dark">Input text</div>
+            </div>
+
+            <div class="upload-zone" style="margin-top:24px">
+              <div class="upload-zone__title">Upload picture(s) of your light and dark coloured jerseys</div>
+              <div class="upload-zone__subtitle">Both jerseys can be in a single photo.</div>
+              <div class="upload-info">
+                Maximum size per file: 2 MB<br>
+                Supported file types: .JPG, .JPEG, .PNG
+              </div>
+              <div class="upload-file-card" style="background:var(--color-bg-light)">
+                <span class="upload-file-card__name">light and dark jersey.jpeg</span>
+                <span class="upload-file-card__size">321 KB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <div class="sticky-footer__timer" id="timer-review">Holding your slot for 10:00 mins</div>
+          <button class="btn btn--primary" data-goto="payment">Continue to payment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 4: PAYMENT ========== -->
+    <div class="screen" id="payment">
+      <div class="d-header">
+        <span class="d-header__title">Pesta Sukan 2026</span>
+        <div class="d-header__inner">
+          <button class="d-header__back" data-back>&#8592; Back</button>
+          <button class="d-header__close" data-goto="event-page">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="d-form">
+        <div class="d-progress">
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg active"></div>
+        </div>
+        <div class="d-progress-labels">
+          <div class="d-progress-label active">Team details</div>
+          <div class="d-progress-label active">Review</div>
+          <div class="d-progress-label active">Payment</div>
+        </div>
+
+        <h1 style="font-size:28px;font-weight:700;margin-bottom:24px">Pay for your team</h1>
+
+        <div class="section-box" style="margin:0 0 24px" data-payment-section="[data-field='manager-name']">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Card details</h2><span class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" data-required>
+              <label class="form-label">Card number</label>
+              <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                  data-field="card-number"><button class="form-clear">&#10005;</button></div>
+              <div class="form-error">This field is required</div>
+            </div>
+            <div class="card-row">
+              <div class="form-group" data-required>
+                <label class="form-label">Expiry date</label>
+                <div class="form-input-wrapper"><input type="text" class="form-input" placeholder="/"
+                    data-field="card-expiry"><button class="form-clear">&#10005;</button></div>
+                <div class="form-error">Required</div>
+              </div>
+              <div class="form-group" data-required>
+                <label class="form-label">CVC</label>
+                <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                    data-field="card-cvc"><button class="form-clear">&#10005;</button></div>
+                <div class="form-error">Required</div>
+              </div>
+            </div>
+            <div class="form-group" data-required>
+              <label class="form-label">Name on card</label>
+              <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                  data-field="card-name"><button class="form-clear">&#10005;</button></div>
+              <div class="form-error">This field is required</div>
+            </div>
+            <div class="form-group" data-required>
+              <label class="form-label">Billing address</label>
+              <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                  data-field="card-address"><button class="form-clear">&#10005;</button></div>
+              <div class="form-error">This field is required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-summary" style="margin:0 0 16px">
+          <div class="payment-summary__title">TOTAL DUE</div>
+          <div class="payment-summary__row"><span>Team registration fee</span><span
+              class="payment-summary__amount">$135.00</span></div>
+        </div>
+
+        <div class="alert-box" style="margin:0 0 24px">
+          <div class="alert-box__icon">i</div>
+          <div class="alert-box__text">After paying, you'll add members to your team. Each team <strong>must have 9 to
+              15 eligible members by 14 June 2026</strong>.<br><br>Teams with <strong>fewer than 9 members</strong>
+            after 14 June 2026 <strong>will be disqualified and refunded</strong>.</div>
+        </div>
+      </div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <div class="sticky-footer__timer" id="timer-payment">Holding your slot for 10:00 mins</div>
+          <button class="btn btn--primary" onclick="if(PS.validate('payment')){PS.goTo('success')}">Pay and
+            register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 5: SUCCESS ========== -->
+    <div class="screen" id="success">
+      <div class="success-screen" data-success-next="team-summary">
+        <div class="success-screen__icon">&#9968;</div>
+        <div class="success-screen__name" style="font-size:40px">Team Rocket</div>
+        <div class="success-screen__subtitle">is headed to</div>
+        <div class="success-screen__event" style="font-size:32px">Basketball<br>5v5 Women's Open</div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 6: TEAM SUMMARY (Desktop) ========== -->
+    <div class="screen" id="team-summary" style="padding-bottom:0">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div><span>A Singapore Government Agency Website</span><a
+          class="gov-masthead__link">How to identify &#8744;</a>
+      </div>
+
+      <div class="d-nav">
+        <div class="d-nav__logo"><span class="d-nav__logo-icon">&#9917;</span> PESTA SUKAN</div>
+        <div class="d-nav__links">
+          <span>Explore</span>
+          <span>Your Games</span>
+          <div class="d-nav__avatar">T</div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-bg-light);padding:32px;text-align:center">
+        <div style="font-size:14px;color:var(--color-text-medium)">Team registration</div>
+        <div style="font-size:28px;font-weight:700;margin-top:4px">Team Rocket</div>
+        <div style="font-size:14px;color:var(--color-text-medium);margin-top:4px">Basketball 5v5 Women's Open</div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-top:6px">Team ID: 002132</div>
+      </div>
+
+      <div class="d-summary-body">
+        <!-- Alert -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:6px">Add at least
+            <strong>9</strong> more members to your team!
+          </div>
+          <div
+            style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:var(--color-bg-light);color:var(--color-text-medium);margin-bottom:10px">
+            By 14 June 2026</div>
+          <div style="font-size:14px;color:var(--color-text-medium);line-height:1.5">Each team must have 9 to 15
+            members.<br>Teams with <strong>fewer than 9 members</strong> after 14 June 2026 will be
+            <strong>disqualified</strong> and refunded.
+          </div>
+        </div>
+
+        <!-- Team members -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-size:20px;font-weight:600;color:var(--color-text-dark)">Team members</div>
+            <div style="font-size:22px;font-weight:700;color:var(--color-text-dark)">0 <span
+                style="font-weight:400;color:var(--color-text-light)">/ 9</span></div>
+          </div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">0 of 9 min, 15 max</div>
+          <div class="team-progress-bar" style="margin:10px 0 16px">
+            <div class="team-progress-bar__fill" style="width:0%"></div>
+          </div>
+
+          <div class="empty-state" style="margin-bottom:16px">
+            <div class="empty-state__title">No members yet</div>
+            <div class="empty-state__text">Add members by entering their details or share the team invite link with
+              them.</div>
+          </div>
+
+          <button class="btn btn--primary" style="margin-bottom:8px" onclick="PS.openInviteModal()">&#128279; Share
+            team
+            invite link</button>
+          <button class="btn btn--secondary" data-goto="add-members">+ Add members manually</button>
+        </div>
+
+        <!-- Team eligibility rules -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+          <div style="font-size:16px;font-weight:500;color:var(--color-text-dark)">Team eligibility rules</div>
+          <span style="font-size:18px;color:var(--color-text-light)">&#8250;</span>
+        </div>
+
+        <!-- Team manager -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team manager</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="manager-details">
+            <div class="manager-detail"><span class="manager-detail__icon">&#128100;</span><span>Darren Ho Jun Le</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#128222;</span><span>9856 6923</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#9993;</span><span>darrenho@email.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team details -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:32px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team details</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Jersey colour – Light</label>
+            <div class="form-readonly">Grey</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+            <div class="form-readonly">Dark red</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 7: ADD MEMBERS ========== -->
+    <div class="screen" id="add-members">
+      <div class="d-header">
+        <span class="d-header__title">Pesta Sukan 2026</span>
+        <div class="d-header__inner">
+          <button class="d-header__back" data-back>&#8592; Back</button>
+          <button class="d-header__close" data-goto="team-summary">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="d-form">
+        <div class="d-progress" style="gap:4px">
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg"></div>
+        </div>
+        <div class="d-progress-labels" style="margin-bottom:24px">
+          <div class="d-progress-label active">Athlete details</div>
+          <div class="d-progress-label">Review</div>
+        </div>
+
+        <h1 style="font-size:28px;font-weight:700;margin-bottom:24px">Add members to Team Rocket</h1>
+
+        <!-- Team eligibility card -->
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:24px">
+          <div style="font-size:18px;font-weight:600;color:var(--color-text-dark);margin-bottom:12px">Team eligibility
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--color-text-medium);margin-bottom:6px">Your team must
+            have:</div>
+          <ul class="eligibility-list" style="margin-bottom:12px">
+            <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>9 to 15
+                members</span></li>
+            <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>At least 70%
+                Singapore citizens or permanent residents</span></li>
+          </ul>
+          <div style="font-size:13px;font-weight:600;color:var(--color-text-medium);margin-bottom:6px">Each member
+            must
+            be:</div>
+          <ul class="eligibility-list" style="margin-bottom:16px">
+            <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>Female</span></li>
+            <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>At least 13 years
+                old
+                this year</span></li>
+            <li class="eligibility-item"><span class="eligibility-item__icon">&#10003;</span><span>A Singapore
+                citizen,
+                permanent resident or foreigner with valid pass</span></li>
+          </ul>
+          <div style="text-align:center">
+            <div style="font-size:14px;font-weight:600;color:var(--color-text-dark)">Currently 0 members in Team
+              Rocket
+            </div>
+            <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">You can <strong>add 9 to
+                15</strong> more members.</div>
+          </div>
+        </div>
+
+        <!-- Athlete sections container -->
+        <div id="athletes-container"></div>
+
+        <!-- Add another member button -->
+        <div style="text-align:center;margin-bottom:24px" id="add-member-btn-wrap">
+          <button id="add-member-btn"
+            style="font-size:14px;font-weight:600;color:var(--color-text-medium);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:10px 20px;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px">+
+            Add another member</button>
+        </div>
+
+        <!-- Info alert -->
+        <div class="alert-box" style="margin-bottom:24px">
+          <div class="alert-box__icon">i</div>
+          <div class="alert-box__text">An indemnity form will be emailed to each member, or if they're under 18, to
+            their parent/guardian.<br><br><strong>All members must submit the indemnity form</strong> before event
+            date,
+            or they'll be disqualified.</div>
+        </div>
+      </div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <button class="btn btn--primary" onclick="PS.goTo('add-members-review')">Review</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 8: ADD MEMBERS REVIEW ========== -->
+    <div class="screen" id="add-members-review">
+      <div class="d-header">
+        <span class="d-header__title">Pesta Sukan 2026</span>
+        <div class="d-header__inner">
+          <button class="d-header__back" data-back>&#8592; Back</button>
+          <button class="d-header__close" data-goto="team-summary">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="d-form">
+        <div class="d-progress" style="gap:4px">
+          <div class="d-progress__seg active"></div>
+          <div class="d-progress__seg active"></div>
+        </div>
+        <div class="d-progress-labels" style="margin-bottom:24px">
+          <div class="d-progress-label active">Athlete details</div>
+          <div class="d-progress-label active">Review</div>
+        </div>
+
+        <h1 style="font-size:28px;font-weight:700;margin-bottom:24px">Review information</h1>
+
+        <!-- Athlete 1 review -->
+        <div class="section-box" style="margin:0 0 16px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Athlete 1: Nur Afifah Binti Kamaruzaman</h2><span
+              class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Name of athlete</label>
+              <div class="form-readonly">Nur Afifah Binti Kamaruzaman</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">NRIC or FIN</label>
+              <div class="form-readonly">S8082763B</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Date of birth</label>
+              <div class="form-readonly">12 July 1996</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Gender</label>
+              <div class="form-readonly">Female</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Citizenship / Residency
+                status</label>
+              <div class="form-readonly">Singapore citizen</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Mobile number</label>
+              <div class="form-readonly">99327476</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Email address</label>
+              <div class="form-readonly">nur.afifah@email.com</div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Jersey number</label>
+              <div class="form-readonly">13</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Athlete 2 review -->
+        <div class="section-box" style="margin:0 0 24px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Athlete 2: Jamie Sng Li Wei</h2><span
+              class="section-box__chevron">&#9650;</span>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Name of athlete</label>
+              <div class="form-readonly">Jamie Sng Li Wei</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">NRIC or FIN</label>
+              <div class="form-readonly">S8082763B</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Date of birth</label>
+              <div class="form-readonly">12 July 1996</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Gender</label>
+              <div class="form-readonly">Female</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Citizenship / Residency
+                status</label>
+              <div class="form-readonly">Singapore citizen</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Mobile number</label>
+              <div class="form-readonly">99327476</div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px"><label class="form-label">Email address</label>
+              <div class="form-readonly">jamie@email.com</div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Jersey number</label>
+              <div class="form-readonly">15</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info alert -->
+        <div class="alert-box" style="margin-bottom:24px">
+          <div class="alert-box__icon">i</div>
+          <div class="alert-box__text">An indemnity form will be emailed to each member, or if they're under 18, to
+            their parent/guardian.<br><br><strong>All members must submit the indemnity form</strong> before event
+            date,
+            or they'll be disqualified.</div>
+        </div>
+      </div>
+
+      <div class="d-footer">
+        <div class="d-footer__inner">
+          <button class="btn btn--primary" data-goto="team-summary-members">Add members to team</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 9: TEAM SUMMARY WITH MEMBERS ========== -->
+    <div class="screen" id="team-summary-members" style="padding-bottom:0">
+
+      <div style="position:absolute;top:56px;right:24px;z-index:100;background:#fff;border:1px solid #D9D9D9;border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:12px;min-width:320px;max-width:420px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#2d2d2d;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1;font-size:15px;font-weight:500;color:#1a1a1a">Added 2 members to Team Rocket.</div>
+        <div style="cursor:pointer;color:#999;font-size:18px;line-height:1;flex-shrink:0" onclick="this.closest('[style*=position]').style.display='none'">&times;</div>
+      </div>
+
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div><span>A Singapore Government Agency Website</span><a
+          class="gov-masthead__link">How to identify &#8744;</a>
+      </div>
+
+      <div class="d-nav">
+        <div class="d-nav__logo"><span class="d-nav__logo-icon">&#9917;</span> PESTA SUKAN</div>
+        <div class="d-nav__links">
+          <span>Explore</span>
+          <span>Your Games</span>
+          <div class="d-nav__avatar">T</div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-bg-light);padding:32px;text-align:center">
+        <div style="font-size:14px;color:var(--color-text-medium)">Team registration</div>
+        <div style="font-size:28px;font-weight:700;margin-top:4px">Team Rocket</div>
+        <div style="font-size:14px;color:var(--color-text-medium);margin-top:4px">Basketball 5v5 Women's Open</div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-top:6px">Team ID: 002132</div>
+      </div>
+
+      <div class="d-summary-body">
+        <!-- Alert -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:18px;font-weight:600;color:var(--color-text-dark);margin-bottom:6px">Add at least
+            <strong>6</strong> more members to your team!
+          </div>
+          <div
+            style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:var(--color-bg-light);color:var(--color-text-medium);margin-bottom:10px">
+            By 14 June 2026</div>
+          <div style="font-size:14px;color:var(--color-text-medium);line-height:1.5">Each team must have 9 to 15
+            members.<br>Teams with <strong>fewer than 9 members</strong> after 14 June 2026 will be
+            <strong>disqualified</strong> and refunded.
+          </div>
+        </div>
+
+        <!-- Team members: 3 -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-size:20px;font-weight:600;color:var(--color-text-dark)">Team members</div>
+            <div style="font-size:22px;font-weight:700;color:var(--color-text-dark)">3 <span
+                style="font-weight:400;color:var(--color-text-light)">/ 9</span></div>
+          </div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">3 of 9 min, 15 max</div>
+          <div class="team-progress-bar" style="margin:10px 0 16px">
+            <div class="team-progress-bar__fill" style="width:33%"></div>
+          </div>
+
+          <!-- AR -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:14px;display:flex;align-items:center;gap:14px;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberModal('ar')">
+            <div
+              style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+              AR</div>
+            <div style="min-width:0">
+              <div
+                style="font-size:16px;font-weight:600;color:var(--color-text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                Abigail Rish Kanageswari D/o Loganathan</div>
+              <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                Age
+                34</div>
+            </div>
+          </div>
+
+          <!-- JS with warning -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberModal('js')">
+            <div
+              style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">
+              &#9888; Has not submitted indemnity</div>
+            <div style="padding:14px;display:flex;align-items:center;gap:14px">
+              <div
+                style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+                JS</div>
+              <div style="min-width:0">
+                <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Jamie Sng Li Wei</div>
+                <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                  Age 42</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NA with warning -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:16px;cursor:pointer"
+            onclick="openMemberModal('na')">
+            <div
+              style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">
+              &#9888; Has not submitted indemnity</div>
+            <div style="padding:14px;display:flex;align-items:center;gap:14px">
+              <div
+                style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+                NA</div>
+              <div style="min-width:0">
+                <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Nur Afifah Binti Kamaruzaman
+                </div>
+                <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                  Age 30</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn--primary" style="margin-bottom:8px" onclick="PS.openInviteModal()">&#128279; Share
+            team
+            invite link</button>
+          <button class="btn btn--secondary" data-goto="add-members">+ Add members manually</button>
+        </div>
+
+        <!-- Team eligibility rules -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+          <div style="font-size:16px;font-weight:500;color:var(--color-text-dark)">Team eligibility rules</div>
+          <span style="font-size:18px;color:var(--color-text-light)">&#8250;</span>
+        </div>
+
+        <!-- Team manager -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team manager</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="manager-details">
+            <div class="manager-detail"><span class="manager-detail__icon">&#128100;</span><span>Darren Ho Jun Le</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#128222;</span><span>9856 6923</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#9993;</span><span>darrenho@email.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team details -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:32px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team details</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Jersey colour – Light</label>
+            <div class="form-readonly">Grey</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+            <div class="form-readonly">Dark red</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Athlete details modal (desktop centered dialog) -->
+    <div id="member-modal"
+      style="position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;background:rgba(45,45,45,0.75);padding:40px 20px">
+      <div onclick="closeMemberModal()" style="position:absolute;inset:0;cursor:pointer"></div>
+      <div
+        style="position:relative;background:#fff;border-radius:12px;width:100%;max-width:760px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,0.2)">
+        <!-- Close button -->
+        <button onclick="closeMemberModal()"
+          style="position:absolute;top:20px;right:20px;border:none;background:none;font-size:22px;cursor:pointer;color:var(--color-text-medium);padding:4px;line-height:1;z-index:2">&#10005;</button>
+
+        <!-- Scrollable body -->
+        <div style="padding:40px 48px 32px;overflow-y:auto;flex:1">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap">
+            <h2 style="font-size:24px;font-weight:700;color:var(--color-text-dark);margin:0">Athlete details</h2>
+            <span id="member-modal-badge"></span>
+          </div>
+
+          <div id="member-modal-fields"
+            style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px;row-gap:24px;margin-bottom:28px"></div>
+
+          <hr style="border:none;border-top:1px solid var(--color-border-light);margin:0 0 28px">
+
+          <h3 style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin:0 0 18px">Emergency contact</h3>
+
+          <div id="member-modal-indemnity-banner" style="display:none;margin-bottom:20px">
+            <div
+              style="background:#EAF2FB;border-left:3px solid #1565C0;border-radius:6px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px">
+              <div
+                style="width:18px;height:18px;border-radius:50%;background:#1565C0;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+                i</div>
+              <div style="font-size:14px;color:var(--color-text-dark);line-height:1.45">This athlete has not submitted
+                the indemnity form. They must do so before the event.</div>
+            </div>
+          </div>
+
+          <div id="member-modal-emergency"
+            style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px;row-gap:24px"></div>
+        </div>
+
+        <!-- Footer actions -->
+        <div
+          style="display:flex;gap:16px;padding:16px 48px 24px;border-top:1px solid var(--color-border-light);background:#fff">
+          <button class="btn btn--secondary" style="flex:1;color:var(--color-link)"
+            onclick="closeMemberModal()">&#9998; Edit</button>
+          <button class="btn btn--secondary" style="flex:1;color:var(--color-link)"
+            onclick="closeMemberModal()">&#10005; Remove</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="shared/components.js"></script>
+  <script>
+    // Desktop pickleball filter state
+    var dFilters = { format: new Set(), category: new Set(), gender: new Set() };
+
+    function dToggleChip(chip) {
+      var group = chip.getAttribute('data-dgroup');
+      var value = chip.getAttribute('data-dvalue');
+      if (dFilters[group].has(value)) { dFilters[group].delete(value); chip.classList.remove('active'); }
+      else { dFilters[group].add(value); chip.classList.add('active'); }
+      dApplyFilters();
+    }
+
+    function dApplyFilters() {
+      var cards = document.querySelectorAll('#d-pickleball-event-list .d-event-card');
+      var count = 0;
+      cards.forEach(function (card) {
+        var title = card.getAttribute('data-dtitle') || '';
+        var passes = true;
+        if (dFilters.format.size > 0 && ![...dFilters.format].some(f => title.includes(f))) passes = false;
+        if (dFilters.category.size > 0 && ![...dFilters.category].some(c => title.includes(c))) passes = false;
+        if (dFilters.gender.size > 0 && ![...dFilters.gender].some(g => title.includes(g))) passes = false;
+        card.style.display = passes ? '' : 'none';
+        if (passes) count++;
+      });
+      var countEl = document.getElementById('d-event-count');
+      if (countEl) countEl.textContent = 'Showing ' + count + ' events';
+    }
+
+    function dClearFilters() {
+      dFilters = { format: new Set(), category: new Set(), gender: new Set() };
+      document.querySelectorAll('.d-filter-chip').forEach(function (c) { c.classList.remove('active'); });
+      dApplyFilters();
+    }
+
+    function dSelectAll(group) {
+      var chips = document.querySelectorAll('.d-filter-chip[data-dgroup="' + group + '"]');
+      var allOn = Array.from(chips).every(function (c) { return c.classList.contains('active'); });
+      chips.forEach(function (c) {
+        var v = c.getAttribute('data-dvalue');
+        if (allOn) { dFilters[group].delete(v); c.classList.remove('active'); }
+        else { dFilters[group].add(v); c.classList.add('active'); }
+      });
+      dApplyFilters();
+    }
+
+    function dToggleGroup(contentId, header) {
+      var el = document.getElementById(contentId);
+      var chevron = header.querySelector('.d-grp-chevron');
+      if (el.style.display === 'none') { el.style.display = ''; chevron.style.transform = ''; }
+      else { el.style.display = 'none'; chevron.style.transform = 'rotate(180deg)'; }
+    }
+
+    var _jerseyUploaded = false;
+
+    function simulateJerseyUpload() {
+      _jerseyUploaded = true;
+      document.getElementById('jersey-file-list').style.display = 'block';
+      document.getElementById('jersey-upload-error').style.display = 'none';
+      document.getElementById('jersey-upload').classList.remove('has-error');
+    }
+
+    function removeJerseyFile() {
+      _jerseyUploaded = false;
+      document.getElementById('jersey-file-list').style.display = 'none';
+    }
+
+    function handleStep1Continue() {
+      var uploadZone = document.getElementById('jersey-upload');
+      var uploadError = document.getElementById('jersey-upload-error');
+      var formValid = PS.validate('form-step1');
+      if (!_jerseyUploaded) {
+        uploadZone.classList.add('has-error');
+        uploadError.style.display = 'block';
+        if (formValid) uploadZone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        uploadZone.classList.remove('has-error');
+        uploadError.style.display = 'none';
+      }
+      if (_jerseyUploaded && formValid) {
+        PS.populateReview('form-step1', 'form-review');
+        PS.goTo('form-review');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      PS.startTimer('timer-form1', 10);
+      PS.startTimer('timer-review', 10);
+      PS.startTimer('timer-payment', 10);
+
+      const container = document.getElementById('athletes-container');
+      const addBtn = document.getElementById('add-member-btn');
+      let athleteCount = 0;
+      const MAX_ATHLETES = 15;
+
+      function athleteHTML(num) {
+        return `
+      <div class="section-box athlete-section" data-athlete="${num}" style="margin:0 0 16px;border:2px solid var(--color-border)">
+        <div class="section-box__header athlete-header" style="position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid var(--color-border-light);border-radius:var(--radius-lg) var(--radius-lg) 0 0;cursor:pointer">
+          <h2 class="section-box__title athlete-title">Athlete ${num}</h2>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="athlete-tick" style="display:none;width:24px;height:24px;border-radius:50%;background:var(--color-text-medium);color:#fff;font-size:14px;align-items:center;justify-content:center">&#10003;</span>
+            <span class="section-box__chevron" style="transition:transform 0.2s">&#9650;</span>
+          </div>
+        </div>
+        <div class="section-box__content athlete-content">
+          <div class="form-group" data-required>
+            <label class="form-label">Name of athlete</label>
+            <input type="text" class="form-input athlete-name" placeholder="">
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">NRIC or FIN</label>
+            <input type="text" class="form-input" placeholder="">
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Citizenship / Residency status</label>
+            <select class="form-select">
+              <option value="" selected>Select</option>
+              <option value="Singapore Citizen">Singapore Citizen</option>
+              <option value="Permanent Resident">Permanent Resident</option>
+              <option value="Foreigner residing in Singapore with valid pass">Foreigner residing in Singapore with valid pass</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Date of birth</label>
+            <div class="form-helper">Must be born in or before 2013</div>
+            <div class="dob-field date-input-group">
+              <input class="dob-field__seg dob-field__seg--dd form-input" type="text" inputmode="numeric" maxlength="2" placeholder="DD">
+              <span class="dob-field__sep">/</span>
+              <input class="dob-field__seg dob-field__seg--mm form-input" type="text" inputmode="numeric" maxlength="2" placeholder="MM">
+              <span class="dob-field__sep">/</span>
+              <input class="dob-field__seg dob-field__seg--yyyy form-input" type="text" inputmode="numeric" maxlength="4" placeholder="YYYY">
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <div class="form-readonly" style="font-size:16px">Female</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <input type="text" class="form-input" placeholder="">
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Email address</label>
+            <input type="text" class="form-input" placeholder="">
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Jersey number</label>
+            <input type="text" class="form-input" placeholder="">
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="guardian-section" style="display:none">
+            <hr class="divider">
+            <div style="font-size:12px;color:var(--color-text-light);font-style:italic;margin-bottom:4px">For athletes under 18 years</div>
+            <div style="font-size:15px;font-weight:600;color:var(--color-text-dark);margin-bottom:16px">Parent/guardian contact details</div>
+            <div class="form-group"><label class="form-label">Name of parent/guardian</label><input type="text" class="form-input" placeholder=""><div class="form-error">This field is required</div></div>
+            <div class="form-group"><label class="form-label">Mobile number</label><input type="text" class="form-input" placeholder=""><div class="form-error">This field is required</div></div>
+            <div class="form-group"><label class="form-label">Email address</label><input type="text" class="form-input" placeholder=""><div class="form-error">This field is required</div></div>
+            <hr class="divider">
+          </div>
+          <button class="remove-member-btn" style="font-size:14px;font-weight:600;color:var(--color-error);border:1px solid var(--color-error);border-radius:var(--radius-md);padding:8px 16px;background:none;cursor:pointer;display:flex;align-items:center;gap:6px">
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 4h12M4.5 4V2.5a1 1 0 011-1h3a1 1 0 011 1V4M5.5 7v4.5M8.5 7v4.5M2.5 4l.5 9a1.5 1.5 0 001.5 1.5h5A1.5 1.5 0 0011 13l.5-9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Remove member
+          </button>
+        </div>
+      </div>`;
+      }
+
+      function expandSection(num) {
+        container.querySelectorAll('.athlete-section').forEach(s => {
+          const n = parseInt(s.getAttribute('data-athlete'));
+          const content = s.querySelector('.athlete-content');
+          const chevron = s.querySelector('.section-box__chevron');
+          if (n === num) {
+            content.style.display = '';
+            chevron.style.transform = '';
+            s.style.borderColor = 'var(--color-border)';
+          } else {
+            content.style.display = 'none';
+            chevron.style.transform = 'rotate(180deg)';
+            s.style.borderColor = 'var(--color-border-light)';
+          }
+        });
+      }
+
+      function updateHeader(section) {
+        const num = section.getAttribute('data-athlete');
+        const nameInput = section.querySelector('.athlete-name');
+        const title = section.querySelector('.athlete-title');
+        const tick = section.querySelector('.athlete-tick');
+        const name = nameInput ? nameInput.value.trim() : '';
+        title.textContent = name ? 'Athlete ' + num + ': ' + name : 'Athlete ' + num;
+
+        const required = section.querySelectorAll('.form-group[data-required] .form-input, .form-group[data-required] .form-select');
+        const allFilled = Array.from(required).every(f => f.tagName === 'SELECT' ? f.value !== '' : f.value.trim() !== '');
+        tick.style.display = allFilled ? 'flex' : 'none';
+      }
+
+      function wireSection(section) {
+        const num = parseInt(section.getAttribute('data-athlete'));
+        const header = section.querySelector('.athlete-header');
+        header.addEventListener('click', (e) => {
+          if (e.target.closest('.remove-member-btn')) return;
+          const content = section.querySelector('.athlete-content');
+          if (content.style.display === 'none') {
+            expandSection(num);
+          } else {
+            content.style.display = 'none';
+            section.querySelector('.section-box__chevron').style.transform = 'rotate(180deg)';
+            section.style.borderColor = 'var(--color-border-light)';
+          }
+        });
+
+        section.querySelectorAll('.form-input, .form-select').forEach(f => {
+          f.addEventListener('input', () => updateHeader(section));
+          f.addEventListener('change', () => updateHeader(section));
+        });
+        PS.initDobFields(section);
+
+        const yyyySeg = section.querySelector('.dob-field__seg--yyyy');
+        const guardianSection = section.querySelector('.guardian-section');
+        if (yyyySeg && guardianSection) {
+          function evalDobYear() {
+            if (yyyySeg.value.length !== 4) return;
+            const year = parseInt(yyyySeg.value);
+            const guardianGroups = guardianSection.querySelectorAll('.form-group');
+            if (year >= 2009) {
+              guardianSection.style.display = '';
+              guardianGroups.forEach(g => g.setAttribute('data-required', ''));
+            } else {
+              guardianSection.style.display = 'none';
+              guardianGroups.forEach(g => {
+                g.removeAttribute('data-required');
+                const inp = g.querySelector('.form-input');
+                if (inp) inp.value = '';
+              });
+            }
+            updateHeader(section);
+          }
+          yyyySeg.addEventListener('input', evalDobYear);
+          yyyySeg.addEventListener('blur', evalDobYear);
+        }
+
+        section.querySelector('.remove-member-btn').addEventListener('click', () => {
+          if (container.querySelectorAll('.athlete-section').length <= 1) return;
+          section.remove();
+          renumber();
+          addBtn.parentElement.style.display = container.querySelectorAll('.athlete-section').length >= MAX_ATHLETES ? 'none' : '';
+        });
+      }
+
+      function renumber() {
+        container.querySelectorAll('.athlete-section').forEach((s, i) => {
+          const num = i + 1;
+          s.setAttribute('data-athlete', num);
+          updateHeader(s);
+        });
+      }
+
+      function addAthlete() {
+        athleteCount++;
+        const count = container.querySelectorAll('.athlete-section').length + 1;
+        container.insertAdjacentHTML('beforeend', athleteHTML(count));
+        const newSection = container.lastElementChild;
+        wireSection(newSection);
+        expandSection(count);
+        newSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (container.querySelectorAll('.athlete-section').length >= MAX_ATHLETES) {
+          addBtn.parentElement.style.display = 'none';
+        }
+        PS.initClearButtons();
+      }
+
+      // Initialize first athlete
+      addAthlete();
+
+      addBtn.addEventListener('click', addAthlete);
+    });
+
+    // ===== Athlete details modal (Screen 6 — team-summary-members) =====
+    var memberModalData = {
+      ar: {
+        hasIndemnityWarning: false,
+        fields: [
+          ['Name of athlete', 'Abigail Rish Kanageswari D/o Loganathan', true],
+          ['NRIC or FIN', 'S8082763B'],
+          ['Citizenship / Residency status', 'Singaporean Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '26 June 1980'],
+          ['Mobile number', '98566923'],
+          ['Email address', 'abigail.rish@email.com'],
+          ['Jersey number', '13']
+        ],
+        emergency: [
+          ['Full name', 'Loganathan Kandasamy'],
+          ['Relationship', 'Father'],
+          ['Mobile number', '98002812'],
+          ['Email address (optional)', '–']
+        ]
+      },
+      js: {
+        hasIndemnityWarning: true,
+        fields: [
+          ['Name of athlete', 'Jamie Sng Li Wei', true],
+          ['NRIC or FIN', 'S8234567B'],
+          ['Citizenship / Residency status', 'Singaporean Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '15 March 1984'],
+          ['Mobile number', '91234567'],
+          ['Email address', 'jamie.sng@email.com'],
+          ['Jersey number', '7']
+        ],
+        emergency: [
+          ['Full name', '–'],
+          ['Relationship', '–'],
+          ['Mobile number', '–'],
+          ['Email address (optional)', '–']
+        ]
+      },
+      na: {
+        hasIndemnityWarning: true,
+        fields: [
+          ['Name of athlete', 'Nur Afifah Binti Kamaruzaman', true],
+          ['NRIC or FIN', 'S9612345C'],
+          ['Citizenship / Residency status', 'Singaporean Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '12 July 1996'],
+          ['Mobile number', '99327476'],
+          ['Email address', 'nur.afifah@email.com'],
+          ['Jersey number', '10']
+        ],
+        emergency: [
+          ['Full name', '–'],
+          ['Relationship', '–'],
+          ['Mobile number', '–'],
+          ['Email address (optional)', '–']
+        ]
+      }
+    };
+
+    function renderMemberFields(fields) {
+      return fields.map(function (row) {
+        var label = row[0], value = row[1], fullWidth = row[2];
+        var col = fullWidth ? 'grid-column:1 / -1;' : '';
+        return '<div style="' + col + '">' +
+          '<div style="font-size:13px;color:var(--color-text-light);margin-bottom:6px">' + label + '</div>' +
+          '<div style="font-size:15px;color:var(--color-text-dark)">' + value + '</div>' +
+          '</div>';
+      }).join('');
+    }
+
+    function openMemberModal(id) {
+      var m = memberModalData[id];
+      if (!m) return;
+      var badgeEl = document.getElementById('member-modal-badge');
+      badgeEl.innerHTML = m.hasIndemnityWarning
+        ? '<span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #ED6C02;color:#ED6C02;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:500;background:#FFF7EC">&#9888; Has not submitted indemnity</span>'
+        : '';
+      document.getElementById('member-modal-fields').innerHTML = renderMemberFields(m.fields);
+      document.getElementById('member-modal-emergency').innerHTML = renderMemberFields(m.emergency);
+      document.getElementById('member-modal-indemnity-banner').style.display = m.hasIndemnityWarning ? 'block' : 'none';
+      var modal = document.getElementById('member-modal');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMemberModal() {
+      document.getElementById('member-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var modal = document.getElementById('member-modal');
+        if (modal && modal.style.display === 'flex') closeMemberModal();
+      }
+    });
+  </script>
+</body>
+
+</html>

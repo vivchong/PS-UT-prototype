@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acknowledge Indemnity – Pesta Sukan 2026</title>
+<link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+<div class="app">
+
+<!-- ========== SCREEN 0: CHILD EMAIL ========== -->
+<div class="screen active" id="child-email" onclick="PS.goTo('landing')" style="cursor:pointer">
+  <img src="shared/ChildEmail.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+</div>
+
+<!-- ========== SCREEN 1: INDEMNITY LANDING ========== -->
+<div class="screen" id="landing">
+  <div style="min-height:100vh;background:var(--color-bg-light);display:flex;flex-direction:column">
+    <div class="comp-header" style="background:var(--color-bg-light);border-bottom:none">
+      <span></span>
+      <span class="comp-header__title">Pesta Sukan 2026</span>
+      <button class="comp-header__close">&#10005;</button>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px">
+      <div class="invite-landing__placeholder">&#9968;</div>
+      <div style="font-size:32px;font-weight:700;color:var(--color-text-dark);margin-top:16px;line-height:1.2">Acknowledge indemnity</div>
+      <div style="font-size:18px;color:var(--color-text-medium);margin-top:12px;max-width:320px;line-height:1.4">for <strong style="color:var(--color-text-dark)">Jamie Sng Li Wei</strong> to participate in <strong style="color:var(--color-text-dark)">Basketball 5v5 Women's Open</strong></div>
+    </div>
+
+    <div style="padding:16px 24px 32px">
+      <button class="btn btn--primary" data-goto="singpass-screen">Log in with Singpass to submit</button>
+      <div style="font-size:13px;color:var(--color-text-light);text-align:center;margin-top:10px">Parents/guardians must submit on behalf of their child/ward under 18 years.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 2: SINGPASS ========== -->
+<div class="screen" id="singpass-screen" style="padding:0;cursor:pointer" onclick="PS.goTo('indemnity-form')">
+  <img src="shared/SingpassMobile.png" style="width:100%;display:block">
+</div>
+
+<!-- ========== SCREEN 3: INDEMNITY FORM ========== -->
+<div class="screen" id="indemnity-form">
+  <div class="comp-header">
+    <button class="comp-header__back" data-back>&#8592;</button>
+    <span class="comp-header__title">Pesta Sukan 2026</span>
+    <button class="comp-header__close" data-goto="landing">&#10005;</button>
+  </div>
+
+  <h1 class="page-title">Acknowledge indemnity</h1>
+
+  <div class="event-summary">
+    <div class="event-summary__sport">ATHLETE</div>
+    <div class="event-summary__name">Jamie Sng Li Wei</div>
+    <div class="event-summary__details">
+      <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128197;</span><span>Basketball 5v5 Women's Open</span></div>
+      <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128101;</span><span>Team Rocket</span></div>
+    </div>
+  </div>
+
+  <!-- Your details section -->
+  <div class="section-box">
+    <div class="section-box__header">
+      <h2 class="section-box__title">Your details</h2>
+      <span class="section-box__chevron">&#9650;</span>
+    </div>
+    <div class="section-box__content">
+      <div class="form-group">
+        <label class="form-label">Are you the athlete's parent or legal guardian?</label>
+        <div id="guardian-toggle" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <div class="guardian-yn-option" data-yn="yes" style="display:flex;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);cursor:pointer;background:var(--color-bg-light);border-color:var(--color-text-medium)">
+            <span style="font-size:16px;color:var(--color-text-light)">&#10003;</span>
+            <span style="font-size:16px;color:var(--color-text-dark);font-weight:600">Yes</span>
+          </div>
+          <div class="guardian-yn-option" data-yn="no" style="display:flex;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);cursor:pointer">
+            <span style="font-size:16px;color:var(--color-text-light)">&#10005;</span>
+            <span style="font-size:16px;color:var(--color-text-dark)">No</span>
+          </div>
+        </div>
+        <div id="guardian-error" style="display:none;font-size:13px;color:var(--color-error);margin-top:8px">You must be the parent or legal guardian of the athlete to acknowledge indemnity on behalf of them.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Your name</label>
+        <div class="form-readonly" style="font-size:16px">Mabel Chan Poh Long</div>
+      </div>
+
+      <div class="form-group" data-required>
+        <label class="form-label">Mobile number</label>
+        <div class="form-input-wrapper"><input type="tel" class="form-input" value="99327476" data-field="your-mobile"><button class="form-clear">&#10005;</button></div>
+        <div class="form-error">This field is required</div>
+      </div>
+
+      <div class="form-group" data-required>
+        <label class="form-label">Email address</label>
+        <div class="form-input-wrapper"><input type="email" class="form-input" value="mabel@email.com" data-field="your-email"><button class="form-clear">&#10005;</button></div>
+        <div class="form-error">This field is required</div>
+      </div>
+
+      <div class="checkbox-group" id="indemnity-use-contact" style="background:var(--color-bg-light);padding:16px;border-radius:var(--radius-md);margin-top:8px">
+        <div class="checkbox-input"></div>
+        <div class="checkbox-label">Use my contact in case of emergencies</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency contact -->
+  <div class="section-box" id="indemnity-emergency-section">
+    <div class="section-box__header">
+      <h2 class="section-box__title">Emergency contact</h2>
+      <span class="section-box__chevron">&#9650;</span>
+    </div>
+    <div class="section-box__content">
+      <div class="form-group" data-required>
+        <label class="form-label">Name of emergency contact</label>
+        <div class="form-input-wrapper"><input type="text" class="form-input" placeholder="" data-field="emergency-name"><button class="form-clear">&#10005;</button></div>
+        <div class="form-error">This field is required</div>
+      </div>
+      <div class="form-group" data-required>
+        <label class="form-label">Relationship</label>
+        <input type="text" class="form-input" placeholder="" data-field="emergency-relationship">
+        <div class="form-error">This field is required</div>
+      </div>
+      <div class="form-group" data-required>
+        <label class="form-label">Mobile number</label>
+        <div class="form-input-wrapper"><input type="tel" class="form-input" placeholder="" data-field="emergency-mobile"><button class="form-clear">&#10005;</button></div>
+        <div class="form-error">This field is required</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address (optional)</label>
+        <div class="form-input-wrapper"><input type="email" class="form-input" placeholder="" data-field="emergency-email"><button class="form-clear">&#10005;</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Declaration -->
+  <div class="section-box">
+    <div class="section-box__header">
+      <h2 class="section-box__title">Declaration</h2>
+      <span class="section-box__chevron">&#9650;</span>
+    </div>
+    <div class="section-box__content">
+      <div class="declaration-text">
+        For this form, <strong>"Event"</strong> refers to <strong>Basketball - 5V5 Women's Open</strong>.<br><br>
+        <ol style="padding-left:20px;display:flex;flex-direction:column;gap:12px">
+          <li>I warrant that I am in good health and have no physical condition that would endanger my life while participating in the Event.</li>
+          <li>Whilst reasonable precaution will be taken by SportSG and/or its agent/s to ensure the safety of participants, I understand that I take part in the Event as a participant at my own risk. I confirm and agree that SportSG and/or its agent/s will not be held liable by me for any personal injury or death arising from my participation in the Event or for any loss of or damage to my property arising from my participation in the Event, except for such injury or death that is caused directly by SportSG's or its agent/s' gross negligence.</li>
+          <li>In consideration of SportSG allowing me to participate in the Event, I undertake that if, in the course of the Event, I deliberately or negligently cause any injury (whether fatal or otherwise) to any person or any damage to or loss of any property of any person, I shall indemnify SportSG if that suffering person makes claims or takes actions against SportSG or SportSG has to pay for costs or expenses.</li>
+          <li>I do hereby confirm that I have agreed to be filmed and / or photographed in connection with the Event.</li>
+          <li>I hereby give to Sport Singapore the permission to copyright and use, edit, republish photographs, audio or video recordings taken of me for the Project ("Materials") on all relevant media platforms for publicity purposes.</li>
+          <li>I hereby transfer complete ownership of the Materials to Sport Singapore.</li>
+          <li>I represent that I am the parent / legal guardian of this participant, and confirm and consent to the above on my child's / ward's behalf.</li>
+        </ol>
+      </div>
+      <div class="checkbox-group" data-required style="background:var(--color-bg-light);padding:16px;border-radius:var(--radius-md)">
+        <div class="checkbox-input"></div>
+        <div><div class="checkbox-label">I have read and agree to the conditions above</div><div class="checkbox-error">You must agree to the declaration to continue</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 100px"></div>
+
+  <div class="sticky-footer">
+    <div class="sticky-footer__inner">
+      <button class="btn btn--primary" onclick="if(PS.validate('indemnity-form')){PS.goTo('success')}">Submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 4: SUCCESS ========== -->
+<div class="screen" id="success">
+  <div class="success-screen" data-success-next="landing">
+    <div class="success-screen__icon">&#9968;</div>
+    <div class="success-screen__name">Indemnity submitted</div>
+    <div class="success-screen__subtitle">for Jamie Sng Li Wei</div>
+    <div class="success-screen__event">Basketball<br>5v5 Women's Open</div>
+  </div>
+</div>
+
+</div>
+
+<script src="shared/components.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const guardianToggle = document.getElementById('guardian-toggle');
+  const guardianError = document.getElementById('guardian-error');
+  const emergencySection = document.getElementById('indemnity-emergency-section');
+  const useContactCheckbox = document.getElementById('indemnity-use-contact');
+
+  if (guardianToggle) {
+    guardianToggle.querySelectorAll('.guardian-yn-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        guardianToggle.querySelectorAll('.guardian-yn-option').forEach(o => {
+          o.style.background = '#fff';
+          o.style.borderColor = 'var(--color-border-light)';
+          o.querySelector('span:last-child').style.fontWeight = '400';
+        });
+        opt.style.background = 'var(--color-bg-light)';
+        opt.style.borderColor = 'var(--color-text-medium)';
+        opt.querySelector('span:last-child').style.fontWeight = '600';
+
+        if (opt.getAttribute('data-yn') === 'no') {
+          guardianError.style.display = 'block';
+        } else {
+          guardianError.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  if (useContactCheckbox) {
+    useContactCheckbox.addEventListener('click', () => {
+      setTimeout(() => {
+        const box = useContactCheckbox.querySelector('.checkbox-input');
+        if (box.classList.contains('checked')) {
+          emergencySection.style.display = 'none';
+          const parentMobile = document.querySelector('[data-field="your-mobile"]')?.value || '99327476';
+          const parentEmail = document.querySelector('[data-field="your-email"]')?.value || 'mabel@email.com';
+          const eName = emergencySection.querySelector('[data-field="emergency-name"]');
+          const eRel = emergencySection.querySelector('[data-field="emergency-relationship"]');
+          const eMobile = emergencySection.querySelector('[data-field="emergency-mobile"]');
+          const eEmail = emergencySection.querySelector('[data-field="emergency-email"]');
+          if (eName) eName.value = 'Mabel Chan Poh Long';
+          if (eRel) eRel.value = 'Parent';
+          if (eMobile) eMobile.value = parentMobile;
+          if (eEmail) eEmail.value = parentEmail;
+          emergencySection.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+        } else {
+          const eName = emergencySection.querySelector('[data-field="emergency-name"]');
+          const eRel = emergencySection.querySelector('[data-field="emergency-relationship"]');
+          const eMobile = emergencySection.querySelector('[data-field="emergency-mobile"]');
+          const eEmail = emergencySection.querySelector('[data-field="emergency-email"]');
+          if (eName) eName.value = '';
+          if (eRel) eRel.value = '';
+          if (eMobile) eMobile.value = '';
+          if (eEmail) eEmail.value = '';
+          emergencySection.style.display = '';
+        }
+      }, 10);
+    });
+  }
+});
+</script>
+</body>
+</html>

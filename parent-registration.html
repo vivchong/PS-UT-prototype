@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Registration – Pesta Sukan 2026</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ========== SCREEN -2: EMAIL ========== -->
+    <div class="screen active" id="email-intro" style="padding:0">
+      <img src="shared/MobilePSEmail01.png" style="width:100%;display:block">
+      <div style="position:relative">
+        <img src="shared/MobilePSEmail02.png" style="width:100%;display:block;margin-top:-1px">
+        <div onclick="PS.goTo('page-intro')"
+          style="position:absolute;top:18%;height:9%;left:31%;width:38%;cursor:pointer;z-index:10"></div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN -1: PAGE/WEBSITE ========== -->
+    <div class="screen" id="page-intro" style="padding:0">
+      <img src="shared/MobilePSPage01.png" style="width:100%;display:block">
+      <div style="position:relative">
+        <img src="shared/MobilePSPage02.png" style="width:100%;display:block;margin-top:-1px">
+        <div onclick="PS.goTo('sports-list')"
+          style="position:absolute;top:40%;height:28%;left:0;right:0;cursor:pointer;z-index:10"></div>
+      </div>
+      <img src="shared/MobilePSPage03.png" style="width:100%;display:block;margin-top:-1px">
+    </div>
+
+    <!-- ========== SCREEN 0A: SPORTS LIST ========== -->
+    <div class="screen" id="sports-list" style="padding-bottom:0">
+      <div style="position:relative;width:100%">
+        <img src="shared/Pesta01.png" style="width:100%;display:block">
+        <img src="shared/Pesta02.png" style="width:100%;display:block;margin-top:-1px">
+        <img src="shared/Pesta03.png" style="width:100%;display:block;margin-top:-1px">
+        <img src="shared/Pesta04.png" style="width:100%;display:block;margin-top:-1px">
+        <img src="shared/Pesta05.png" style="width:100%;display:block;margin-top:-1px">
+        <div style="position:relative">
+          <img src="shared/Pesta06.png" style="width:100%;display:block;margin-top:-1px">
+          <div onclick="PS.goTo('sport-pickleball')"
+            style="position:absolute;left:0;right:0;top:50%;height:23%;cursor:pointer;z-index:10"></div>
+        </div>
+        <img src="shared/Pesta07.png" style="width:100%;display:block;margin-top:-1px">
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 0B: PICKLEBALL SPORT PAGE ========== -->
+    <div class="screen" id="sport-pickleball" style="padding-bottom:0">
+      <div style="position:relative">
+        <img src="shared/Pickleball 01.png" style="width:100%;display:block">
+        <div style="position:relative">
+          <img src="shared/Pickleball 02.png" style="width:100%;display:block;margin-top:-1px">
+          <div onclick="PS.goTo('pickleball-categories')"
+            style="position:absolute;left:5%;right:5%;cursor:pointer;border-radius:8px;top:23%;height:6%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 0C: PICKLEBALL CATEGORIES LIST ========== -->
+    <div class="screen" id="pickleball-categories" style="padding-bottom:80px">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div>
+        <span>A Singapore Government Agency Website</span>
+        <a class="gov-masthead__link" href="#">How to identify &#8744;</a>
+      </div>
+
+      <div style="background:var(--color-bg-light);padding:28px 16px 24px;text-align:center">
+        <div style="font-size:36px;color:var(--color-text-light);margin-bottom:8px">&#9968;</div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-bottom:4px">Pesta Sukan 2026</div>
+        <div
+          style="font-size:32px;font-weight:800;color:var(--color-text-dark);letter-spacing:1px;text-transform:uppercase">
+          PICKLEBALL</div>
+      </div>
+
+      <div
+        style="padding:12px 16px;font-size:13px;color:var(--color-text-light);display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--color-border-light);overflow-x:auto;white-space:nowrap">
+        <span style="cursor:pointer" onclick="PS.goTo('sports-list')">...</span>
+        <span>&#8250;</span>
+        <span style="cursor:pointer" onclick="PS.goTo('sports-list')">Pesta Sukan</span>
+        <span>&#8250;</span>
+        <span style="cursor:pointer" onclick="PS.goTo('sports-list')">Sports</span>
+        <span>&#8250;</span>
+        <span style="font-weight:600;color:var(--color-text-dark)">Pickleball</span>
+      </div>
+
+      <div style="padding:16px">
+        <div data-filters-btn
+          style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:500;color:var(--color-text-dark);cursor:pointer">
+          <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+            <path d="M0 1h18M3 7h12M6 13h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          Filters
+        </div>
+      </div>
+
+      <div id="pickleball-event-list" style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Corporate Event
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$120.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth U14
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth U18
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Boys' Youth U18
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$20.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+
+        <!-- Girls' Youth U14 Singles — CLICKABLE, goes to event-page -->
+        <div onclick="PS.goTo('event-page')"
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff;cursor:pointer">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth U14
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth U18
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Girls' Youth U18
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$20.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Senior
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$5.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Senior
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Masters
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$15.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Masters
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Merdeka 125+
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Open Singles
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$15.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Open Doubles
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Men's Open Split
+            U18 Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Senior
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Masters
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$15.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Masters
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Merdeka
+            125+ Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Open
+            Singles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$15.00</strong> <span
+              style="color:var(--color-text-light)">per person</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Open
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Women's Open Split
+            U18 Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Youth U18
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$20.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Senior
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Masters
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Merdeka 125+
+            Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$10.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Open Doubles
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Open Split
+            U14 Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Mixed Open Split
+            U18 Doubles</div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$30.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+        <div
+          style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;background:#fff;margin-bottom:4px">
+          <div style="font-size:18px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Team Challenge
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:6px">
+            <span>&#128197;</span>11 July – 2 August 2026
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-text-medium);margin-bottom:12px">
+            <span>&#128205;</span>Bukit Canberra Sport Hall
+          </div>
+          <div style="font-size:16px;color:var(--color-text-dark)"><strong>$135.00</strong> <span
+              style="color:var(--color-text-light)">per team</span></div>
+        </div>
+      </div>
+
+      <div class="tab-bar">
+        <div class="tab-bar__item active">
+          <div class="tab-bar__icon">&#128269;</div><span>Explore</span>
+        </div>
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#127941;</div><span>Your games</span>
+        </div>
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#128100;</div><span>Profile</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 1: EVENT DETAILS PAGE ========== -->
+    <div class="screen" id="event-page">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div>
+        <span>A Singapore Government Agency Website</span>
+        <a class="gov-masthead__link" href="#">How to identify</a>
+      </div>
+
+      <div style="background:linear-gradient(180deg, #999 0%, #888 40%, #666 100%);padding:0 0 24px;position:relative">
+        <div style="display:flex;align-items:center;padding:12px 16px;position:relative">
+          <button class="comp-header__back" data-back style="position:static;color:#fff">&#8592;</button>
+          <span
+            style="font-size:16px;color:rgba(255,255,255,0.7);position:absolute;left:50%;transform:translateX(-50%)">Pesta
+            Sukan 2026</span>
+        </div>
+
+        <div style="padding:120px 16px 0">
+          <div style="font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#fff">
+            PICKLEBALL</div>
+          <div style="font-size:28px;font-weight:700;color:#fff;margin-top:4px;line-height:1.2">Girls' Youth U14 Singles
+          </div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
+              <span>&#128197;</span>
+              <div>
+                <div style="font-size:12px;opacity:0.7">Tournament dates</div>
+                <div style="font-size:14px;color:#fff">11 July – 2 August 2026</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8)">
+              <span>&#128205;</span>
+              <div>
+                <div style="font-size:12px;opacity:0.7">Venue</div>
+                <div style="font-size:14px;color:#fff">Bukit Canberra Sport Hall</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eligibility-section">
+        <h2 class="eligibility-section__title">Eligibility</h2>
+        <div class="eligibility-section__subtitle">Each participant must be:</div>
+        <ul class="eligibility-list">
+          <li class="eligibility-item">
+            <span class="eligibility-item__icon">&#10003;</span>
+            <span>Female</span>
+          </li>
+          <li class="eligibility-item">
+            <span class="eligibility-item__icon">&#10003;</span>
+            <span>10 to 14 years old this year</span>
+          </li>
+          <li class="eligibility-item">
+            <span class="eligibility-item__icon">&#10003;</span>
+            <span>A Singapore citizen, permanent resident or foreigner with valid pass</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="timeline">
+        <h2 class="timeline__title">Next steps</h2>
+        <div class="timeline-step">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot timeline-step__dot--filled"></div>
+            <div class="timeline-step__line"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Register and pay</div>
+            <div class="timeline-step__pills"><span class="pill">By 23 May 2026</span></div>
+            <div class="timeline-step__desc">You may register on behalf of your child/student.<br><br>If participant is
+              under 18, their parent/guardian must acknowledge the indemnity form on their behalf.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__indicator">
+            <div class="timeline-step__dot"></div>
+          </div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__name">Play!</div>
+            <div class="timeline-step__desc">Schedule will be released around 2 weeks before the event begins.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules-section">
+        <h2 class="rules-section__title">Rules & regulations</h2>
+        <div class="rules-card">
+          <div>
+            <div class="rules-card__name">View Pickleball Rules and Regulations</div>
+            <div class="rules-card__date">PDF updated 9 Apr 2026, 4:27 pm</div>
+          </div>
+          <span class="rules-card__arrow">&#8594;</span>
+        </div>
+      </div>
+
+      <div style="height: 120px"></div>
+
+      <div class="event-footer">
+        <div class="event-footer__inner">
+          <div class="event-footer__pricing">
+            <div>
+              <span class="event-footer__price">$10.00</span>
+              <span class="event-footer__price-unit"> per person</span>
+              <div class="event-footer__deadline">Register by 23 May 2026</div>
+            </div>
+            <span class="event-footer__spots">13 spots left</span>
+          </div>
+          <button class="btn btn--primary" data-goto="singpass-screen">Log in with Singpass to register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: SINGPASS ========== -->
+    <div class="screen" id="singpass-screen" style="padding:0;cursor:pointer" onclick="PS.goTo('choose-role')">
+      <img src="shared/SingpassMobile.png" style="width:100%;display:block">
+    </div>
+
+    <!-- ========== SCREEN 3: CHOOSE ROLE ========== -->
+    <div class="screen" id="choose-role">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="event-page">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment"></div>
+          <div class="progress-bar__segment"></div>
+          <div class="progress-bar__segment"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 1 of 4</div>
+          <div class="progress-info__label">Choose role</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Are you registering for yourself?</h1>
+
+      <div class="px-16">
+        <div class="radio-group" id="role-radio">
+          <div class="radio-option" data-value="self"
+            style="background:var(--color-bg-light);border-color:var(--color-border-light);pointer-events:none;opacity:0.7">
+            <div class="radio-circle"></div>
+            <div class="radio-label" style="color:var(--color-text-light)">Yes, I am participating in this event.</div>
+          </div>
+          <div class="radio-option selected" data-value="child">
+            <div class="radio-circle"></div>
+            <div class="radio-label">No, I am registering for my child or student.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-role">Holding your slot for 15:00 mins</div>
+          <button class="btn btn--primary"
+            onclick="PS.goTo('athlete-details'); PS.startTimer('timer-form', 10);">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 4: ATHLETE + PARENT DETAILS FORM ========== -->
+    <div class="screen" id="athlete-details">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="event-page">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment"></div>
+          <div class="progress-bar__segment"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 2 of 4</div>
+          <div class="progress-info__label">Athlete details</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Register individual</h1>
+
+      <div class="event-summary">
+        <div class="event-summary__sport">PICKLEBALL</div>
+        <div class="event-summary__name">Girls' Youth U14 Singles</div>
+        <div class="event-summary__details">
+          <div class="event-summary__detail">
+            <span class="event-summary__detail-icon">&#128197;</span>
+            <span>11 July – 2 August 2026</span>
+          </div>
+          <div class="event-summary__detail">
+            <span class="event-summary__detail-icon">&#128205;</span>
+            <span>Bukit Canberra Sport Hall</span>
+          </div>
+        </div>
+        <div class="event-summary__price">$10.00 per person</div>
+      </div>
+
+      <!-- Athlete details section (BLANK — parent fills in child's info) -->
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Athlete details</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group" data-required>
+            <label class="form-label">Name of athlete</label>
+            <div class="form-input-wrapper">
+              <input type="text" class="form-input" placeholder="" data-field="athlete-name">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">NRIC or FIN</label>
+            <div class="form-helper">Ensure this is correct as you cannot edit this after registration</div>
+            <div class="form-input-wrapper">
+              <input type="text" class="form-input" placeholder="" data-field="athlete-nric">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Citizenship / Residency status</label>
+            <select class="form-select" data-field="athlete-citizenship">
+              <option value="" selected>Select</option>
+              <option value="Singapore Citizen">Singapore Citizen</option>
+              <option value="Permanent Resident">Permanent Resident</option>
+              <option value="Foreigner residing in Singapore with valid pass">Foreigner residing in Singapore with valid
+                pass</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Date of birth</label>
+            <div class="form-helper">Participants must be at least 13 years old this year (born in or before 2013).
+            </div>
+            <div class="dob-field date-input-group" data-field="athlete-dob">
+              <input class="dob-field__seg dob-field__seg--dd form-input" type="text" inputmode="numeric" maxlength="2"
+                placeholder="DD">
+              <span class="dob-field__sep">/</span>
+              <input class="dob-field__seg dob-field__seg--mm form-input" type="text" inputmode="numeric" maxlength="2"
+                placeholder="MM">
+              <span class="dob-field__sep">/</span>
+              <input class="dob-field__seg dob-field__seg--yyyy form-input" type="text" inputmode="numeric"
+                maxlength="4" placeholder="YYYY">
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <div class="form-readonly" style="font-size:16px">Female</div>
+            <input type="hidden" data-field="athlete-gender" value="Female">
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <div class="form-input-wrapper">
+              <input type="tel" class="form-input" placeholder="" data-field="athlete-mobile">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Email address</label>
+            <div class="form-input-wrapper">
+              <input type="email" class="form-input" placeholder="" data-field="athlete-email">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your (parent) details section — pre-filled from Singpass -->
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Your details</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="alert-box">
+            <div class="alert-box__icon">i</div>
+            <div class="alert-box__text">Your details have been pre-filled from Myinfo.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Are you the athlete's parent?</label>
+            <div id="parent-toggle" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <div class="parent-yn-option" data-yn="yes"
+                style="display:flex;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);cursor:pointer">
+                <span style="font-size:16px;color:var(--color-text-light)">&#10003;</span>
+                <span style="font-size:16px;color:var(--color-text-dark)">Yes</span>
+              </div>
+              <div class="parent-yn-option" data-yn="no"
+                style="display:flex;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);cursor:pointer">
+                <span style="font-size:16px;color:var(--color-text-light)">&#10005;</span>
+                <span style="font-size:16px;color:var(--color-text-dark)">No</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your name</label>
+            <div class="form-readonly" style="font-size:16px">Mabel Chan Poh Long</div>
+            <input type="hidden" data-field="parent-name" value="Mabel Chan Poh Long">
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <div class="form-input-wrapper">
+              <input type="tel" class="form-input" value="99327476" data-field="parent-mobile">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Email address</label>
+            <div class="form-input-wrapper">
+              <input type="email" class="form-input" value="mabel@email.com" data-field="parent-email">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div id="use-parent-emergency-wrap" style="display:none">
+            <div class="checkbox-group" id="use-parent-emergency"
+              style="background:var(--color-bg-light);padding:16px;border-radius:var(--radius-md);margin-top:8px">
+              <div class="checkbox-input"></div>
+              <div class="checkbox-label">Use my contact in case of emergencies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency contact section -->
+      <div class="section-box" id="emergency-section" style="display:none">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Emergency contact</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group" data-required>
+            <label class="form-label">Name of emergency contact</label>
+            <div class="form-input-wrapper">
+              <input type="text" class="form-input" placeholder="" data-field="emergency-name">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Relationship</label>
+            <select class="form-select" data-field="emergency-relationship">
+              <option value="" selected>Select</option>
+              <option value="Parent">Parent</option>
+              <option value="Spouse">Spouse</option>
+              <option value="Sibling">Sibling</option>
+              <option value="Friend">Friend</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <div class="form-input-wrapper">
+              <input type="tel" class="form-input" placeholder="" data-field="emergency-mobile">
+              <button class="form-clear">&#10005;</button>
+            </div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email address (optional)</label>
+            <div class="form-input-wrapper">
+              <input type="email" class="form-input" placeholder="" data-field="emergency-email">
+              <button class="form-clear">&#10005;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Declaration section -->
+      <div class="section-box" id="declaration-section" style="display:none">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Declaration</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="declaration-text">
+            For this form, <strong>"Event"</strong> refers to <strong>Pickleball - Girls' Youth U14
+              Singles</strong>.<br><br>
+            <ol style="padding-left:20px;display:flex;flex-direction:column;gap:12px">
+              <li>I warrant that I am in good health and have no physical condition that would endanger my life while
+                participating in the Event.</li>
+              <li>Whilst reasonable precaution will be taken by SportSG and/or its agent/s to ensure the safety of
+                participants, I understand that I take part in the Event as a participant at my own risk. I confirm and
+                agree that SportSG and/or its agent/s will not be held liable by me for any personal injury or death
+                arising from my participation in the Event or for any loss of or damage to my property arising from my
+                participation in the Event, except for such injury or death that is caused directly by SportSG's or its
+                agent/s' gross negligence.</li>
+              <li>In consideration of SportSG allowing me to participate in the Event, I undertake that if, in the
+                course of the Event, I deliberately or negligently cause any injury (whether fatal or otherwise) to any
+                person or any damage to or loss of any property of any person, I shall indemnify SportSG if that
+                suffering person makes claims or takes actions against SportSG or SportSG has to pay for costs or
+                expenses.</li>
+              <li>I do hereby confirm that I have agreed to be filmed and / or photographed in connection with the
+                Event.</li>
+              <li>I hereby give to Sport Singapore the permission to copyright and use, edit, republish photographs,
+                audio or video recordings taken of me for the Project ("Materials") on all relevant media platforms for
+                publicity purposes.</li>
+              <li>I hereby transfer complete ownership of the Materials to Sport Singapore.</li>
+              <li>I represent that I am the parent / legal guardian of this participant, and confirm and consent to the
+                above on my child's / ward's behalf.</li>
+            </ol>
+          </div>
+
+          <div class="checkbox-group" data-required
+            style="background:var(--color-bg-light);padding:16px;border-radius:var(--radius-md)">
+            <div class="checkbox-input"></div>
+            <div>
+              <div class="checkbox-label">I have read and agree to the conditions above</div>
+              <div class="checkbox-error">You must agree to the declaration to continue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-form">Holding your slot for 10:00 mins</div>
+          <button class="btn btn--primary"
+            onclick="if(PS.validate('athlete-details')){PS.populateReview('athlete-details','review');PS.populateSummary('athlete-details','summary');PS.goTo('review')}">Continue
+            to review</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 5: REVIEW ========== -->
+    <div class="screen" id="review">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="event-page">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 3 of 4</div>
+          <div class="progress-info__label">Review</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Review information</h1>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Athlete details</h2>
+          <button class="section-box__edit" onclick="PS.goTo('athlete-details')">Edit</button>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group mb-8"><label class="form-label">Name of athlete</label>
+            <div class="form-readonly" data-review="athlete-name"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">NRIC or FIN</label>
+            <div class="form-readonly" data-review="athlete-nric"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Citizenship / Residency status</label>
+            <div class="form-readonly" data-review="athlete-citizenship"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Date of birth</label>
+            <div class="form-readonly" data-review="athlete-dob"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Gender</label>
+            <div class="form-readonly" data-review="athlete-gender"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+            <div class="form-readonly" data-review="athlete-mobile"></div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Email address</label>
+            <div class="form-readonly" data-review="athlete-email"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Parent/guardian details</h2>
+          <button class="section-box__edit" onclick="PS.goTo('athlete-details')">Edit</button>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group mb-8"><label class="form-label">Your name</label>
+            <div class="form-readonly" data-review="parent-name">Mabel Chan Poh Long</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+            <div class="form-readonly" data-review="parent-mobile"></div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Email address</label>
+            <div class="form-readonly" data-review="parent-email"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Emergency contact</h2>
+          <button class="section-box__edit" onclick="PS.goTo('athlete-details')">Edit</button>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group mb-8"><label class="form-label">Name of emergency contact</label>
+            <div class="form-readonly" data-review="emergency-name"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Relationship</label>
+            <div class="form-readonly" data-review="emergency-relationship"></div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+            <div class="form-readonly" data-review="emergency-mobile"></div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Email address (optional)</label>
+            <div class="form-readonly" data-review="emergency-email"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Declaration</h2>
+        </div>
+        <div class="section-box__content">
+          <div class="declaration-text declaration-text--collapsible">
+            For this form, <strong>"Event"</strong> refers to <strong>Pickleball - Girls' Youth U14
+              Singles</strong>.<br><br>
+            <ol style="padding-left:20px;display:flex;flex-direction:column;gap:12px">
+              <li>I warrant that I am in good health and have no physical condition that would endanger my life while
+                participating in the Event.</li>
+              <li>Whilst reasonable precaution will be taken by SportSG and/or its agent/s to ensure the safety of
+                participants, I understand that I take part in the Event as a participant at my own risk. I confirm and
+                agree that SportSG and/or its agent/s will not be held liable by me for any personal injury or death
+                arising from my participation in the Event or for any loss of or damage to my property arising from my
+                participation in the Event, except for such injury or death that is caused directly by SportSG's or its
+                agent/s' gross negligence.</li>
+              <li>In consideration of SportSG allowing me to participate in the Event, I undertake that if, in the
+                course of the Event, I deliberately or negligently cause any injury (whether fatal or otherwise) to any
+                person or any damage to or loss of any property of any person, I shall indemnify SportSG if that
+                suffering person makes claims or takes actions against SportSG or SportSG has to pay for costs or
+                expenses.</li>
+              <li>I do hereby confirm that I have agreed to be filmed and / or photographed in connection with the
+                Event.</li>
+              <li>I hereby give to Sport Singapore the permission to copyright and use, edit, republish photographs,
+                audio or video recordings taken of me for the Project ("Materials") on all relevant media platforms for
+                publicity purposes.</li>
+              <li>I hereby transfer complete ownership of the Materials to Sport Singapore.</li>
+              <li>I represent that I am the parent / legal guardian of this participant, and confirm and consent to the
+                above on my child's / ward's behalf.</li>
+            </ol>
+          </div>
+          <button class="show-more-btn">Show more &#8744;</button>
+          <div class="checkbox-group checkbox-group--readonly">
+            <div class="checkbox-input checked"></div>
+            <div class="checkbox-label">I have read and agree to the conditions above</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-review">Holding your slot for 08:00 mins</div>
+          <button class="btn btn--primary" data-goto="payment">Continue to payment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 6: PAYMENT ========== -->
+    <div class="screen" id="payment">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="event-page">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 4 of 4</div>
+          <div class="progress-info__label">Payment</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Pay registration fee</h1>
+
+      <div class="section-box" data-payment-section="[data-field='parent-name']">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Card details</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group" data-required>
+            <label class="form-label">Card number</label>
+            <div class="form-input-wrapper"><input type="text" class="form-input"
+                placeholder="1234 5678 9012 3456"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="card-row">
+            <div class="form-group" data-required>
+              <label class="form-label">Expiry date</label>
+              <div class="form-input-wrapper"><input type="text" class="form-input" placeholder="MM / YY"><button
+                  class="form-clear">&#10005;</button></div>
+              <div class="form-error">Required</div>
+            </div>
+            <div class="form-group" data-required>
+              <label class="form-label">CVC</label>
+              <div class="form-input-wrapper"><input type="text" class="form-input" placeholder="123"><button
+                  class="form-clear">&#10005;</button></div>
+              <div class="form-error">Required</div>
+            </div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Name on card</label>
+            <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""><button
+                class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Billing address</label>
+            <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""><button
+                class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-summary">
+        <div class="payment-summary__title">TOTAL DUE</div>
+        <div class="payment-summary__row">
+          <span>Individual registration fee</span>
+          <span class="payment-summary__amount">$10.00</span>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-payment">Holding your slot for 08:00 mins</div>
+          <button class="btn btn--primary" onclick="if(PS.validate('payment')){PS.goTo('success')}">Pay and
+            register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 7: SUCCESS ========== -->
+    <div class="screen" id="success">
+      <div class="success-screen" data-success-next="summary">
+        <div class="success-screen__icon">&#9968;</div>
+        <div class="success-screen__name">Jamie Sng Li Wei</div>
+        <div class="success-screen__subtitle">is headed to</div>
+        <div class="success-screen__event">Pickleball<br>Girls' Youth U14 Singles</div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 8: SUMMARY ========== -->
+    <div class="screen" id="summary" style="padding-bottom:0">
+      <!-- Sticky header -->
+      <div class="comp-header"
+        style="background:var(--color-bg-light);position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:none">
+        <span></span>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="your-games">&#10005;</button>
+      </div>
+
+      <!-- Curved gray header -->
+      <div
+        style="background:var(--color-bg-light);padding:56px 16px 60px;text-align:center;border-radius:0 0 24px 24px">
+        <div style="font-size:16px;font-weight:500;color:var(--color-text-light)">Individual registration</div>
+        <div style="font-size:28px;font-weight:700;margin-top:6px;line-height:1.2" data-summary="athlete-name">Jamie Sng
+          Li Wei</div>
+        <div class="summary-modal__pills" style="margin-top:12px">
+          <span class="pill" style="color:var(--color-success);border-color:var(--color-success)">&#10003; Submitted
+            indemnity</span>
+        </div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-top:8px">Registration ID: 002132</div>
+      </div>
+
+      <div style="padding:0 16px 16px;margin-top:-28px">
+        <!-- Event details card -->
+        <div class="event-summary"
+          style="margin:0 0 16px;background:#fff;border:1px solid var(--color-border-light);cursor:pointer"
+          onclick="PS.goTo('event-page')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div style="flex:1">
+              <div class="event-summary__sport">PICKLEBALL</div>
+              <div class="event-summary__name" style="font-size:22px">Girls' Youth U14 Singles</div>
+              <div class="event-summary__details">
+                <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128197;</span><span>11
+                    July – 2 August 2026</span></div>
+                <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128205;</span><span>Bukit
+                    Canberra Sport Hall</span></div>
+              </div>
+            </div>
+            <span style="font-size:18px;color:var(--color-text-light);margin-top:12px">&#8594;</span>
+          </div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 16px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Athlete details</h2><button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group mb-8"><label class="form-label">Name of athlete</label>
+              <div class="form-readonly" data-summary="athlete-name"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">NRIC or FIN</label>
+              <div class="form-readonly" data-summary="athlete-nric"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Date of birth</label>
+              <div class="form-readonly" data-summary="athlete-dob"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Gender</label>
+              <div class="form-readonly" data-summary="athlete-gender"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Citizenship / Residency status</label>
+              <div class="form-readonly" data-summary="athlete-citizenship"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+              <div class="form-readonly" data-summary="athlete-mobile"></div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Email address</label>
+              <div class="form-readonly" data-summary="athlete-email"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 16px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Emergency contact</h2><button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group mb-8"><label class="form-label">Name of emergency contact</label>
+              <div class="form-readonly" data-summary="emergency-name"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Relationship</label>
+              <div class="form-readonly" data-summary="emergency-relationship"></div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+              <div class="form-readonly" data-summary="emergency-mobile"></div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Email address (optional)</label>
+              <div class="form-readonly" data-summary="emergency-email"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-box" style="margin:0 0 16px">
+          <div class="section-box__header">
+            <h2 class="section-box__title">Parent/guardian details</h2><button class="section-box__edit">&#9998;
+              Edit</button>
+          </div>
+          <div class="section-box__content">
+            <div class="form-group mb-8"><label class="form-label">Your name</label>
+              <div class="form-readonly" data-summary="parent-name">Mabel Chan Poh Long</div>
+            </div>
+            <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+              <div class="form-readonly" data-summary="parent-mobile"></div>
+            </div>
+            <div class="form-group mb-0"><label class="form-label">Email address</label>
+              <div class="form-readonly" data-summary="parent-email"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 9: YOUR GAMES DASHBOARD ========== -->
+    <div class="screen" id="your-games">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div>
+        <span>A Singapore Government Agency Website</span>
+        <a class="gov-masthead__link" href="#">How to identify</a>
+      </div>
+
+      <h1 class="dashboard-title" style="padding-top:20px">Your games</h1>
+
+      <div class="dashboard-tabs">
+        <div class="dashboard-tab active">Upcoming (3)</div>
+        <div class="dashboard-tab">Past (7)</div>
+        <div class="dashboard-tab">Cancelled (2)</div>
+      </div>
+
+      <!-- Parent's own game -->
+      <div class="dashboard-card">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">PICKLEBALL</div>
+          <div class="dashboard-card__event">Women's Open Singles</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>11 July – 2 August 2026</span></div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Bukit Canberra Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex">View event details &#8594;</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--color-border-light);border-radius:var(--radius-md)">
+            <span style="font-size:14px;color:#1768BE;font-weight:500">Mabel Chan Poh Long</span>
+            <span style="color:var(--color-text-light)">&#8594;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Child's games -->
+      <div style="font-size:20px;font-weight:700;padding:24px 16px 12px;color:var(--color-text-dark)">Your child's games
+      </div>
+
+      <div class="dashboard-card" style="cursor:pointer" onclick="PS.goTo('summary')">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">PICKLEBALL</div>
+          <div class="dashboard-card__event">Girls' Youth U14 Singles</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>11 July – 2 August 2026</span></div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Bukit Canberra Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex" onclick="event.stopPropagation();PS.goTo('event-page')">View event details
+            &#8594;</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--color-border-light);border-radius:var(--radius-md)">
+            <span style="font-size:14px;color:#1768BE;font-weight:500">Jamie Sng Li Wei</span>
+            <span style="color:var(--color-text-light)">&#8594;</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:80px"></div>
+
+      <div class="tab-bar">
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#128269;</div><span>Explore</span>
+        </div>
+        <div class="tab-bar__item active">
+          <div class="tab-bar__icon">&#127941;</div><span>Your games</span>
+        </div>
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#128100;</div><span>Profile</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="shared/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Position Pickleball hotspot in sports list
+      function positionPRPickleballHotspot() {
+        const hotspot = document.getElementById('pr-pickleball-hotspot');
+        const pesta06 = document.getElementById('pr-pesta06-img');
+        if (!hotspot || !pesta06) return;
+        const imgOffsetTop = pesta06.offsetTop;
+        const scaledHeight = pesta06.offsetHeight;
+        hotspot.style.top = (imgOffsetTop + scaledHeight * 0.50) + 'px';
+        hotspot.style.height = (scaledHeight * 0.23) + 'px';
+      }
+      const prPesta06 = document.getElementById('pr-pesta06-img');
+      if (prPesta06 && prPesta06.complete) { positionPRPickleballHotspot(); }
+      else if (prPesta06) { prPesta06.addEventListener('load', positionPRPickleballHotspot); }
+      window.addEventListener('resize', positionPRPickleballHotspot);
+
+      // Sort pickleball event cards alphabetically by event name
+      (function () {
+        var list = document.getElementById('pickleball-event-list');
+        if (!list) return;
+        var cards = Array.from(list.children);
+        cards.sort(function (a, b) {
+          var nameA = ((a.querySelector('div') || {}).textContent || '').replace(/\s+/g, ' ').trim();
+          var nameB = ((b.querySelector('div') || {}).textContent || '').replace(/\s+/g, ' ').trim();
+          return nameA.localeCompare(nameB, 'en', { sensitivity: 'base' });
+        });
+        cards.forEach(function (c) { list.appendChild(c); });
+      })();
+
+      PS.initPickleballFilters();
+      PS.initDobFields();
+      PS.startTimer('timer-role', 15);
+      PS.startTimer('timer-form', 10);
+      PS.startTimer('timer-review', 8);
+      PS.startTimer('timer-payment', 8);
+
+      // Parent Yes/No toggle
+      const parentToggle = document.getElementById('parent-toggle');
+      const emergencyWrap = document.getElementById('use-parent-emergency-wrap');
+      const emergencySection = document.getElementById('emergency-section');
+      const declarationSection = document.getElementById('declaration-section');
+
+      if (parentToggle) {
+        parentToggle.querySelectorAll('.parent-yn-option').forEach(opt => {
+          opt.addEventListener('click', () => {
+            parentToggle.querySelectorAll('.parent-yn-option').forEach(o => {
+              o.style.background = '#fff';
+              o.style.borderColor = 'var(--color-border-light)';
+              o.querySelector('span:last-child').style.fontWeight = '400';
+            });
+            opt.style.background = 'var(--color-bg-light)';
+            opt.style.borderColor = 'var(--color-text-medium)';
+            opt.querySelector('span:last-child').style.fontWeight = '600';
+
+            if (opt.getAttribute('data-yn') === 'yes') {
+              emergencyWrap.style.display = 'block';
+              const useBox = document.querySelector('#use-parent-emergency .checkbox-input');
+              if (!useBox || !useBox.classList.contains('checked')) {
+                emergencySection.style.display = '';
+              }
+              declarationSection.style.display = '';
+            } else {
+              emergencyWrap.style.display = 'none';
+              emergencySection.style.display = 'none';
+              declarationSection.style.display = 'none';
+            }
+          });
+        });
+      }
+
+      // "Use my contact in case of emergencies" checkbox
+      const useParentCheckbox = document.getElementById('use-parent-emergency');
+      if (useParentCheckbox) {
+        useParentCheckbox.addEventListener('click', () => {
+          setTimeout(() => {
+            const box = useParentCheckbox.querySelector('.checkbox-input');
+            if (box.classList.contains('checked')) {
+              emergencySection.style.display = 'none';
+              const parentName = 'Mabel Chan Poh Long';
+              const parentMobile = document.querySelector('[data-field="parent-mobile"]')?.value || '99327476';
+              const parentEmail = document.querySelector('[data-field="parent-email"]')?.value || 'mabel@email.com';
+              const eName = emergencySection.querySelector('[data-field="emergency-name"]');
+              const eMobile = emergencySection.querySelector('[data-field="emergency-mobile"]');
+              const eEmail = emergencySection.querySelector('[data-field="emergency-email"]');
+              const eRelationship = emergencySection.querySelector('[data-field="emergency-relationship"]');
+              if (eName) eName.value = parentName;
+              if (eMobile) eMobile.value = parentMobile;
+              if (eEmail) eEmail.value = parentEmail;
+              if (eRelationship) eRelationship.value = 'Parent';
+              emergencySection.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+            } else {
+              // clear fields and show empty section
+              const eName = emergencySection.querySelector('[data-field="emergency-name"]');
+              const eMobile = emergencySection.querySelector('[data-field="emergency-mobile"]');
+              const eEmail = emergencySection.querySelector('[data-field="emergency-email"]');
+              const eRelationship = emergencySection.querySelector('[data-field="emergency-relationship"]');
+              if (eName) eName.value = '';
+              if (eMobile) eMobile.value = '';
+              if (eEmail) eEmail.value = '';
+              if (eRelationship) eRelationship.value = '';
+              emergencySection.style.display = '';
+            }
+          }, 10);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

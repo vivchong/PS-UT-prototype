@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Manager – Your Games – Pesta Sukan 2026</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ========== SCREEN 1: TEAM REGISTRATION DETAILS ========== -->
+    <div class="screen active" id="team-detail" style="padding-bottom:0">
+      <!-- Sticky header -->
+      <div class="comp-header"
+        style="background:var(--color-bg-light);position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:none">
+        <span></span>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="your-games">&#10005;</button>
+      </div>
+
+      <!-- Gray curved header -->
+      <div
+        style="background:var(--color-bg-light);padding:56px 16px 48px;text-align:center;border-radius:0 0 24px 24px">
+        <div style="font-size:14px;color:var(--color-text-light)">Team registration</div>
+        <div style="font-size:26px;font-weight:700;margin-top:4px">Team Rocket</div>
+        <div style="font-size:14px;color:var(--color-text-medium);margin-top:4px">Basketball 5v5 Women's Open</div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-top:6px">Team ID: 002132</div>
+      </div>
+
+      <div style="padding:0 16px 24px;margin-top:-20px">
+        <!-- Alert -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:18px;font-weight:600;color:var(--color-text-dark);margin-bottom:6px">Add at least
+            <strong>6</strong> more members to your team!
+          </div>
+          <div
+            style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:var(--color-bg-light);color:var(--color-text-medium);margin-bottom:10px">
+            By 14 June 2026</div>
+          <div style="font-size:14px;color:var(--color-text-medium);line-height:1.5">Each team must have 9 to 15
+            members.<br><br>Teams with <strong>fewer than 9 members</strong> after 14 June 2026 will be
+            <strong>disqualified</strong> and refunded.
+          </div>
+        </div>
+
+        <!-- Team members -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-size:20px;font-weight:600;color:var(--color-text-dark)">Team members</div>
+            <div style="font-size:22px;font-weight:700;color:var(--color-text-dark)">3 <span
+                style="font-weight:400;color:var(--color-text-light)">/ 9</span></div>
+          </div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">3 of 9 min, 15 max</div>
+          <div class="team-progress-bar" style="margin:10px 0 16px">
+            <div class="team-progress-bar__fill" style="width:33%"></div>
+          </div>
+
+          <!-- Member 1: AR with warning banner attached -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberSheet('ar')">
+            <div
+              style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">
+              &#9888; Has not submitted indemnity</div>
+            <div style="padding:14px;display:flex;align-items:center;gap:14px">
+              <div
+                style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+                AR</div>
+              <div style="min-width:0">
+                <div
+                  style="font-size:16px;font-weight:600;color:var(--color-text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                  Abigail Rish Kanageswari D/o...</div>
+                <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                  Age 34</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2: JS with warning banner attached -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberSheet('js')">
+            <div
+              style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">
+              &#9888; Has not submitted indemnity</div>
+            <div style="padding:14px;display:flex;align-items:center;gap:14px">
+              <div
+                style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+                JS</div>
+              <div style="min-width:0">
+                <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Jamie Sng Li Wei</div>
+                <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                  Age 42</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3: NA -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:14px;display:flex;align-items:center;gap:14px;margin-bottom:16px;cursor:pointer"
+            onclick="openMemberSheet('na')">
+            <div
+              style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+              NA</div>
+            <div style="min-width:0">
+              <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Nur Afifah Binti Kamaruzaman
+              </div>
+              <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age
+                30</div>
+            </div>
+          </div>
+
+          <button class="btn btn--primary" style="margin-bottom:8px" onclick="PS.openInviteModal()">&#128279; Share team
+            invite link</button>
+          <button class="btn btn--secondary">+ Add members manually</button>
+        </div>
+
+        <!-- Team eligibility rules -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+          <div style="font-size:16px;font-weight:500;color:var(--color-text-dark)">Team eligibility rules</div>
+          <span style="font-size:18px;color:var(--color-text-light)">&#8250;</span>
+        </div>
+
+        <!-- Team manager -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team manager</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="manager-details">
+            <div class="manager-detail"><span class="manager-detail__icon">&#128100;</span><span>Darren Ho Jun Le</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#128222;</span><span>9856 6923</span></div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#9993;</span><span>darrenho@email.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team details -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Team details</div>
+            <button class="section-box__edit">&#9998; Edit</button>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Jersey colour – Light</label>
+            <div class="form-readonly">Grey</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+            <div class="form-readonly">Dark red</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: YOUR GAMES DASHBOARD ========== -->
+    <div class="screen" id="your-games">
+      <div class="gov-masthead">
+        <div class="gov-masthead__icon"></div>
+        <span>A Singapore Government Agency Website</span>
+        <a class="gov-masthead__link" href="#">How to identify &#8744;</a>
+      </div>
+
+      <h1 class="dashboard-title" style="padding-top:20px">Your games</h1>
+
+      <div class="dashboard-tabs">
+        <div class="dashboard-tab active">Upcoming (3)</div>
+        <div class="dashboard-tab">Past (7)</div>
+        <div class="dashboard-tab">Cancelled (2)</div>
+      </div>
+
+      <!-- Your team: Basketball Women's Open 5v5 -->
+      <div class="dashboard-card">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">BASKETBALL</div>
+          <div class="dashboard-card__event">Women's Open 5v5</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>20 August – 25 September 2026</span>
+            </div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Clementi Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex">View event details</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div style="font-size:13px;font-weight:600;color:var(--color-text-medium);margin-bottom:8px">Your team</div>
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-md);cursor:pointer;margin-bottom:4px"
+            onclick="PS.goTo('team-detail')">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px">
+              <span style="font-size:14px;font-weight:500;color:var(--color-text-dark)">Team Rocket</span>
+              <span style="color:var(--color-text-light)">&#8594;</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--color-text-light);display:flex;align-items:center;gap:4px">&#9888;
+            Still missing 3 team members</div>
+        </div>
+      </div>
+
+      <!-- Your child's games -->
+      <div style="font-size:20px;font-weight:700;padding:24px 16px 12px;color:var(--color-text-dark)">Your child's games
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">PICKLEBALL</div>
+          <div class="dashboard-card__event">Girls' Youth U14 Singles</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>11 July – 2 August 2026</span></div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Bukit Canberra Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex">View event details</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--color-border-light);border-radius:var(--radius-md)">
+            <span style="font-size:14px;color:#1768BE;font-weight:500">Jamie Ho Yun Ling</span>
+            <span style="color:var(--color-text-light)">&#8594;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Athletes you manage -->
+      <div style="font-size:20px;font-weight:700;padding:24px 16px 12px;color:var(--color-text-dark)">Athletes you
+        manage</div>
+
+      <!-- Men's Open 5v5 -->
+      <div class="dashboard-card">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">BASKETBALL</div>
+          <div class="dashboard-card__event">Men's Open 5v5</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>20 August – 25 September 2026</span>
+            </div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Clementi Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex">View event details</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-md);margin-bottom:4px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px">
+              <span style="font-size:14px;font-weight:500;color:var(--color-text-dark)">Team Airplane</span>
+              <span style="color:var(--color-text-light)">&#8594;</span>
+            </div>
+          </div>
+          <div
+            style="font-size:12px;color:var(--color-text-light);display:flex;align-items:center;gap:4px;margin-bottom:8px">
+            &#9888; Still missing 2 team members</div>
+          <div id="extra-teams-1" style="display:none">
+            <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-md);margin-bottom:8px">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px">
+                <span style="font-size:14px;font-weight:500;color:var(--color-text-dark)">Team Helicopter</span>
+                <span style="color:var(--color-text-light)">&#8594;</span>
+              </div>
+            </div>
+          </div>
+          <button
+            onclick="var el=document.getElementById('extra-teams-1');if(el.style.display==='none'){el.style.display='block';this.innerHTML='Show less &#8743;'}else{el.style.display='none';this.innerHTML='Show more &#8744;'}"
+            style="font-size:14px;font-weight:600;color:#1768BE;border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px;margin:0 auto">Show
+            more &#8744;</button>
+        </div>
+      </div>
+
+      <!-- Girls' Youth U14 5v5 -->
+      <div class="dashboard-card" style="margin-top:12px">
+        <div class="dashboard-card__body" style="padding-bottom:0">
+          <div class="dashboard-card__sport">BASKETBALL</div>
+          <div class="dashboard-card__event">Girls' Youth U14 5v5</div>
+          <div class="dashboard-card__meta">
+            <div class="dashboard-card__meta-item"><span>&#128197;</span><span>11 July – 2 August 2026</span></div>
+            <div class="dashboard-card__meta-item"><span>&#128205;</span><span>Bukit Canberra Sport Hall</span></div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;text-align:center"><button class="btn btn--secondary btn--small"
+            style="display:inline-flex">View event details</button></div>
+        <hr class="divider" style="margin:0">
+        <div style="padding:12px 16px">
+          <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-md)">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px">
+              <span style="font-size:14px;font-weight:500;color:var(--color-text-dark)">Team Boat</span>
+              <span style="color:var(--color-text-light)">&#8594;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:80px"></div>
+
+      <div class="tab-bar">
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#128269;</div><span>Explore</span>
+        </div>
+        <div class="tab-bar__item active">
+          <div class="tab-bar__icon">&#127941;</div><span>Your games</span>
+        </div>
+        <div class="tab-bar__item">
+          <div class="tab-bar__icon">&#128100;</div><span>Profile</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom sheet for member details -->
+    <div class="bottom-sheet" id="member-sheet">
+      <div class="bottom-sheet__overlay" onclick="closeMemberSheet()"></div>
+      <div class="bottom-sheet__content" style="padding:0;max-height:90vh">
+        <div
+          style="position:sticky;top:0;background:#fff;z-index:1;display:flex;justify-content:flex-end;padding:16px 16px 0">
+          <button onclick="closeMemberSheet()"
+            style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--color-text-dark);padding:4px">&#10005;</button>
+        </div>
+        <div style="padding:0 20px;overflow-y:auto">
+          <h2 style="font-size:22px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Member details</h2>
+          <div id="member-sheet-badge" style="margin-bottom:16px"></div>
+          <div id="member-sheet-fields"></div>
+          <hr class="divider">
+          <h3 style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Emergency contact
+          </h3>
+          <div id="member-sheet-emergency"></div>
+        </div>
+        <div
+          style="display:flex;gap:12px;padding:16px 20px;border-top:1px solid var(--color-border-light);background:#fff;position:sticky;bottom:0">
+          <button class="btn btn--secondary" style="flex:1" onclick="closeMemberSheet()">&#9998; Edit</button>
+          <button class="btn btn--secondary" style="flex:1;color:var(--color-error);border-color:var(--color-error)"
+            onclick="closeMemberSheet()">&#10005; Remove</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="shared/components.js"></script>
+  <script>
+    const memberData = {
+      ar: {
+        badge: '<span class="pill" style="color:var(--color-warning);border-color:var(--color-warning)">&#9888; Has not submitted indemnity</span>',
+        fields: [
+          ['Name of athlete', 'Abigail Rish Kanageswari D/o Loganathan'],
+          ['NRIC or FIN', 'S8082763B'],
+          ['Citizenship / Residency status', 'Singaporean Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '26 June 1980'],
+          ['Mobile number', '98566923'],
+          ['Email address', 'abigail.rish@email.com'],
+          ['Jersey number', '13']
+        ],
+        emergency: [
+          ['Name of emergency contact', 'Loganathan Kandasamy'],
+          ['Relationship', 'Father'],
+          ['Mobile number', '980028125'],
+          ['Email address (optional)', '–']
+        ]
+      },
+      js: {
+        badge: '<span class="pill" style="color:var(--color-warning);border-color:var(--color-warning)">&#9888; Has not submitted indemnity</span>',
+        fields: [
+          ['Name of athlete', 'Jamie Sng Li Wei'],
+          ['NRIC or FIN', 'S9234567A'],
+          ['Citizenship / Residency status', 'Singapore Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '15 March 1984'],
+          ['Mobile number', '91234567'],
+          ['Email address', 'jamie.sng@email.com'],
+          ['Jersey number', '7']
+        ],
+        emergency: [
+          ['Name of emergency contact', 'Sng Wei Liang'],
+          ['Relationship', 'Spouse'],
+          ['Mobile number', '92345678'],
+          ['Email address (optional)', 'weiliang@email.com']
+        ]
+      },
+      na: {
+        badge: '',
+        fields: [
+          ['Name of athlete', 'Nur Afifah Binti Kamaruzaman'],
+          ['NRIC or FIN', 'S8082763B'],
+          ['Citizenship / Residency status', 'Singapore Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '12 July 1996'],
+          ['Mobile number', '99327476'],
+          ['Email address', 'nur.afifah@email.com'],
+          ['Jersey number', '10']
+        ],
+        emergency: [
+          ['Name of emergency contact', 'Kamaruzaman'],
+          ['Relationship', 'Parent'],
+          ['Mobile number', '96615472'],
+          ['Email address (optional)', 'kamaruzaman@email.com']
+        ]
+      }
+    };
+
+    function renderFields(fields) {
+      return fields.map(([label, value]) =>
+        '<div style="margin-bottom:16px"><div class="form-label">' + label + '</div><div class="form-readonly" style="padding:4px 0">' + value + '</div></div>'
+      ).join('');
+    }
+
+    function openMemberSheet(id) {
+      const m = memberData[id];
+      if (!m) return;
+      document.getElementById('member-sheet-badge').innerHTML = m.badge;
+      document.getElementById('member-sheet-fields').innerHTML = renderFields(m.fields);
+      document.getElementById('member-sheet-emergency').innerHTML = renderFields(m.emergency);
+      document.getElementById('member-sheet').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMemberSheet() {
+      document.getElementById('member-sheet').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.dashboard-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.dashboard-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

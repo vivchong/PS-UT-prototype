@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Invite – Pesta Sukan 2026</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ========== SCREEN 1: INVITE LANDING ========== -->
+    <div class="screen active" id="invite-landing">
+      <div style="min-height:100vh;background:var(--color-bg-light);display:flex;flex-direction:column">
+        <div class="comp-header" style="background:var(--color-bg-light);border-bottom:none">
+          <span></span>
+          <span class="comp-header__title">Pesta Sukan 2026</span>
+          <button class="comp-header__close">&#10005;</button>
+        </div>
+
+        <div
+          style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px">
+          <div class="invite-landing__placeholder">&#9968;</div>
+          <div class="invite-landing__title">Join Team Rocket</div>
+          <div style="font-size:18px;font-weight:600;color:var(--color-text-medium);margin-top:4px">Basketball 5v5
+            Women's Open</div>
+          <div style="font-size:14px;color:var(--color-text-light);margin-top:16px">3 members</div>
+          <div class="invite-landing__avatars" style="margin-top:8px">
+            <div class="avatar-circle">AR</div>
+            <div class="avatar-circle">JS</div>
+            <div class="avatar-circle">NA</div>
+          </div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:12px">Team ID: 002132</div>
+        </div>
+
+        <div style="padding:16px 24px 32px">
+          <button class="btn btn--primary" data-goto="singpass-screen">Log in with Singpass to register</button>
+          <div style="font-size:13px;color:var(--color-text-light);text-align:center;margin-top:10px">Parents/guardians
+            may register on behalf of their child.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: SINGPASS ========== -->
+    <div class="screen" id="singpass-screen" style="padding:0;cursor:pointer" onclick="PS.goTo('choose-role')">
+      <img src="shared/SingpassMobile.png" style="width:100%;display:block">
+    </div>
+
+    <!-- ========== SCREEN 3: CHOOSE ROLE ========== -->
+    <div class="screen" id="choose-role">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="invite-landing">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment"></div>
+          <div class="progress-bar__segment"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 1 of 3</div>
+          <div class="progress-info__label">Choose role</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Are you registering for yourself?</h1>
+
+      <div class="px-16">
+        <div class="radio-group">
+          <div class="radio-option selected" data-value="self">
+            <div class="radio-circle"></div>
+            <div class="radio-label">Yes, I am participating in this event.</div>
+          </div>
+          <div class="radio-option" data-value="child">
+            <div class="radio-circle"></div>
+            <div class="radio-label">No, I am registering for my child/ward.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-role">Holding your slot for 15:00 mins</div>
+          <button class="btn btn--primary" data-goto="athlete-details">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 4: ATHLETE DETAILS ========== -->
+    <div class="screen" id="athlete-details">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="invite-landing">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 2 of 3</div>
+          <div class="progress-info__label">Athlete details</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Join Team Rocket</h1>
+
+      <div class="event-summary">
+        <div class="event-summary__sport">BASKETBALL</div>
+        <div class="event-summary__name">5v5 Women's Open</div>
+        <div class="event-summary__details">
+          <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128197;</span><span>28 June – 3
+              August 2026</span></div>
+          <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128205;</span><span>Clementi
+              Sport Hall</span></div>
+        </div>
+        <div class="event-summary__detail"><span class="event-summary__detail-icon">&#128101;</span><span>Team
+            Rocket</span></div>
+      </div>
+
+      <!-- Athlete details pre-filled -->
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Athlete details</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="alert-box">
+            <div class="alert-box__icon">i</div>
+            <div class="alert-box__text">Your details have been pre-filled from Singpass. Only your name and NRIC cannot
+              be edited.</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Name of athlete</label>
+            <input type="text" class="form-input form-input--readonly" value="Abigail Rish Kanageswari D/o Loganathan"
+              readonly data-field="athlete-name">
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">NRIC or FIN</label>
+            <input type="text" class="form-input form-input--readonly" value="S8082763B" readonly
+              data-field="athlete-nric">
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Date of birth</label>
+            <input type="text" class="form-input form-input--readonly" value="26 June 1980" readonly
+              data-field="athlete-dob">
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Gender</label>
+            <select class="form-select form-select--readonly" data-field="athlete-gender" disabled>
+              <option value="Female" selected>Female</option>
+              <option value="Male">Male</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Citizenship / Residency status</label>
+            <select class="form-select form-select--readonly" data-field="athlete-citizenship" disabled>
+              <option value="Singapore citizen" selected>Singapore citizen</option>
+              <option value="Permanent resident">Permanent resident</option>
+              <option value="Employment Pass">Employment Pass</option>
+              <option value="S Pass">S Pass</option>
+              <option value="Work Permit">Work Permit</option>
+              <option value="Student Pass">Student Pass</option>
+              <option value="Dependent's Pass">Dependent's Pass</option>
+              <option value="Long-Term Visit Pass">Long-Term Visit Pass</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <div class="form-input-wrapper"><input type="tel" class="form-input" value="99327476"
+                data-field="athlete-mobile"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Email address</label>
+            <div class="form-input-wrapper"><input type="email" class="form-input" value="abigail.rish@email.com"
+                data-field="athlete-email"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+
+          <div class="form-group" data-required>
+            <label class="form-label">Jersey number</label>
+            <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                data-field="athlete-jersey"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency contact -->
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Emergency contact</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group" data-required>
+            <label class="form-label">Name of emergency contact</label>
+            <div class="form-input-wrapper"><input type="text" class="form-input" placeholder=""
+                data-field="emergency-name"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Relationship</label>
+            <select class="form-select" data-field="emergency-relationship">
+              <option value="" selected>Select</option>
+              <option value="Parent">Parent</option>
+              <option value="Spouse">Spouse</option>
+              <option value="Sibling">Sibling</option>
+              <option value="Friend">Friend</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group" data-required>
+            <label class="form-label">Mobile number</label>
+            <div class="form-input-wrapper"><input type="tel" class="form-input" placeholder=""
+                data-field="emergency-mobile"><button class="form-clear">&#10005;</button></div>
+            <div class="form-error">This field is required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email address (optional)</label>
+            <div class="form-input-wrapper"><input type="email" class="form-input" placeholder=""
+                data-field="emergency-email"><button class="form-clear">&#10005;</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Declaration -->
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Declaration</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="declaration-text">
+            For this form, "Event" refers to <strong>Basketball - 5V5 Women's Open</strong>.<br><br>
+            <ol style="padding-left:20px;display:flex;flex-direction:column;gap:12px">
+              <li>I warrant that I am in good health and have no physical condition that would endanger my life while
+                participating in the Event.</li>
+              <li>Whilst reasonable precaution will be taken by SportSG and/or its agent/s to ensure the safety of
+                participants, I understand that I take part in the Event as a participant at my own risk. I confirm and
+                agree that SportSG and/or its agent/s will not be held liable by me for any personal injury or death
+                arising from my participation in the Event or for any loss of or damage to my property arising from my
+                participation in the Event, except for such injury or death that is caused directly by SportSG's or its
+                agent/s' gross negligence.</li>
+              <li>In consideration of SportSG allowing me to participate in the Event, I undertake that if, in the
+                course of the Event, I deliberately or negligently cause any injury (whether fatal or otherwise) to any
+                person or any damage to or loss of any property of any person, I shall indemnify SportSG if that
+                suffering person makes claims or takes actions against SportSG or SportSG has to pay for costs or
+                expenses.</li>
+              <li>I do hereby confirm that I have agreed to be filmed and/or photographed in connection with the Event.
+              </li>
+              <li>I hereby give to Sport Singapore the permission to copyright and use, edit, republish photographs,
+                audio or video recordings taken of me for the Project ("Materials") on all relevant media platforms for
+                publicity purposes.</li>
+              <li>I hereby transfer complete ownership of the Materials to Sport Singapore.</li>
+              <li>I represent that I am at least 18 years of age.</li>
+            </ol>
+          </div>
+          <div class="checkbox-group" data-required
+            style="background:var(--color-bg-light);padding:16px;border-radius:var(--radius-md)">
+            <div class="checkbox-input"></div>
+            <div>
+              <div class="checkbox-label">I have read and agree to the conditions above</div>
+              <div class="checkbox-error">You must agree to the declaration to continue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-form">Holding your slot for 15:00 mins</div>
+          <button class="btn btn--primary"
+            onclick="if(PS.validate('athlete-details')){PS.populateReview('athlete-details','review');PS.populateSummary('athlete-details','team-summary');PS.goTo('review')}">Continue
+            to review</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 5: REVIEW ========== -->
+    <div class="screen" id="review">
+      <div class="comp-header">
+        <button class="comp-header__back" data-back>&#8592;</button>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="invite-landing">&#10005;</button>
+      </div>
+
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+          <div class="progress-bar__segment active"></div>
+        </div>
+        <div class="progress-info">
+          <div class="progress-info__step">Step 3 of 3</div>
+          <div class="progress-info__label">Review</div>
+        </div>
+      </div>
+
+      <h1 class="page-title">Review information</h1>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Athlete details</h2><button class="section-box__edit"
+            onclick="PS.goTo('athlete-details')">Edit</button>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group mb-8"><label class="form-label">Name of athlete</label>
+            <div class="form-readonly" data-review="athlete-name">Abigail Rish Kanageswari D/o Loganathan</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">NRIC or FIN</label>
+            <div class="form-readonly" data-review="athlete-nric">S8082763B</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Date of birth</label>
+            <div class="form-readonly" data-review="athlete-dob">26 June 1980</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Gender</label>
+            <div class="form-readonly" data-review="athlete-gender">Female</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Citizenship / Residency status</label>
+            <div class="form-readonly" data-review="athlete-citizenship">Singapore citizen</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+            <div class="form-readonly" data-review="athlete-mobile">99327476</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Email address</label>
+            <div class="form-readonly" data-review="athlete-email">abigail.rish@email.com</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Jersey number</label>
+            <div class="form-readonly" data-review="athlete-jersey">13</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Emergency contact</h2><button class="section-box__edit"
+            onclick="PS.goTo('athlete-details')">Edit</button>
+        </div>
+        <div class="section-box__content">
+          <div class="form-group mb-8"><label class="form-label">Name of emergency contact</label>
+            <div class="form-readonly" data-review="emergency-name">Kamaruzaman</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Relationship</label>
+            <div class="form-readonly" data-review="emergency-relationship">Parent</div>
+          </div>
+          <div class="form-group mb-8"><label class="form-label">Mobile number</label>
+            <div class="form-readonly" data-review="emergency-mobile">96615472</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Email address (optional)</label>
+            <div class="form-readonly" data-review="emergency-email">kamaruzaman@email.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-box__header">
+          <h2 class="section-box__title">Declaration</h2>
+          <span class="section-box__chevron">&#9650;</span>
+        </div>
+        <div class="section-box__content">
+          <div class="declaration-text declaration-text--collapsible">
+            For this form, <strong>"Event"</strong> refers to <strong>Basketball - 5V5 Women's Open</strong>.<br><br>
+            <ol style="padding-left:20px;display:flex;flex-direction:column;gap:12px">
+              <li>I warrant that I am in good health and have no physical condition that would endanger my life while
+                participating in the Event.</li>
+              <li>Whilst reasonable precaution will be taken by SportSG and/or its agent/s to ensure the safety of
+                participants, I understand that I take part in the Event as a participant at my own risk. I confirm and
+                agree that SportSG and/or its agent/s will not be held liable by me for any personal injury or death
+                arising from my participation in the Event or for any loss of or damage to my property arising from my
+                participation in the Event, except for such injury or death that is caused directly by SportSG's or its
+                agent/s' gross negligence.</li>
+              <li>In consideration of SportSG allowing me to participate in the Event, I undertake that if, in the
+                course of the Event, I deliberately or negligently cause any injury (whether fatal or otherwise) to any
+                person or any damage to or loss of any property of any person, I shall indemnify SportSG if that
+                suffering person makes claims or takes actions against SportSG or SportSG has to pay for costs or
+                expenses.</li>
+              <li>I do hereby confirm that I have agreed to be filmed and/or photographed in connection with the Event.
+              </li>
+              <li>I hereby give to Sport Singapore the permission to copyright and use, edit, republish photographs,
+                audio or video recordings taken of me for the Project ("Materials") on all relevant media platforms for
+                publicity purposes.</li>
+              <li>I hereby transfer complete ownership of the Materials to Sport Singapore.</li>
+              <li>I represent that I am at least 18 years of age.</li>
+            </ol>
+          </div>
+          <button class="show-more-btn">Show more &#8744;</button>
+          <div class="checkbox-group checkbox-group--readonly">
+            <div class="checkbox-input checked"></div>
+            <div class="checkbox-label">I have read and agree to the conditions above</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="sticky-footer">
+        <div class="sticky-footer__inner">
+          <div class="sticky-footer__timer" id="timer-review">Holding your slot for 08:00 mins</div>
+          <button class="btn btn--primary" data-goto="success">Join team</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 6: SUCCESS ========== -->
+    <div class="screen" id="success">
+      <div class="success-screen" data-success-next="team-summary">
+        <div class="success-screen__icon">&#9968;</div>
+        <div class="success-screen__name" style="font-size:36px">Abigail Rish Kanageswari D/o Loganathan</div>
+        <div style="font-size:22px;color:var(--color-text-light);margin-top:8px;line-height:1.4">has joined <strong
+            style="color:var(--color-text-dark)">Team Rocket</strong> in</div>
+        <div style="font-size:22px;font-weight:700;color:var(--color-text-dark);line-height:1.3">Basketball 5v5 Women's
+          Open</div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 7: TEAM SUMMARY ========== -->
+    <div class="screen" id="team-summary" style="padding-bottom:0">
+      <!-- Sticky header -->
+      <div class="comp-header"
+        style="background:var(--color-bg-light);position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:none">
+        <span></span>
+        <span class="comp-header__title">Pesta Sukan 2026</span>
+        <button class="comp-header__close" data-goto="invite-landing">&#10005;</button>
+      </div>
+
+      <!-- Gray curved header -->
+      <div
+        style="background:var(--color-bg-light);padding:56px 16px 48px;text-align:center;border-radius:0 0 24px 24px">
+        <div style="font-size:14px;color:var(--color-text-light)">Team registration</div>
+        <div style="font-size:26px;font-weight:700;margin-top:4px">Team Rocket</div>
+        <div style="font-size:14px;color:var(--color-text-medium);margin-top:4px">Basketball 5v5 Women's Open</div>
+        <div style="font-size:13px;color:var(--color-text-light);margin-top:6px">Team ID: 002132</div>
+      </div>
+
+      <div style="padding:0 16px 24px;margin-top:-20px">
+        <!-- Alert -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:18px;font-weight:600;color:var(--color-text-dark);margin-bottom:6px">Your team needs
+            <strong>6</strong> more members!
+          </div>
+          <div
+            style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:var(--color-bg-light);color:var(--color-text-medium);margin-bottom:10px">
+            By 14 June 2026</div>
+          <div style="font-size:14px;color:var(--color-text-medium);line-height:1.5">Remind your team manager to add at
+            least 6 more members.<br><br>If your team has less than 9 members after 14 June 2026, your team will be
+            disqualified and refunded.</div>
+        </div>
+
+        <!-- Team members -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-size:20px;font-weight:600;color:var(--color-text-dark)">Team members</div>
+            <div style="font-size:22px;font-weight:700;color:var(--color-text-dark)">3 <span
+                style="font-weight:400;color:var(--color-text-light)">/ 9</span></div>
+          </div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">3 of 9 min, 15 max</div>
+          <div class="team-progress-bar" style="margin:10px 0 16px">
+            <div class="team-progress-bar__fill" style="width:33%"></div>
+          </div>
+
+          <!-- Member 1: AR -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:14px;display:flex;align-items:center;gap:14px;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberSheet('ar')">
+            <div
+              style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+              AR</div>
+            <div style="min-width:0">
+              <div
+                style="font-size:16px;font-weight:600;color:var(--color-text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                Abigail Rish Kanageswari D/o...</div>
+              <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age
+                30</div>
+            </div>
+          </div>
+
+          <!-- Member 2: JS with warning badge attached -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px;cursor:pointer"
+            onclick="openMemberSheet('js')">
+            <div
+              style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">
+              &#9888; Has not submitted indemnity</div>
+            <div style="padding:14px;display:flex;align-items:center;gap:14px">
+              <div
+                style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+                JS</div>
+              <div style="min-width:0">
+                <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Jamie Sng Li Wei</div>
+                <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen |
+                  Age 42</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3: NA -->
+          <div
+            style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:14px;display:flex;align-items:center;gap:14px;cursor:pointer"
+            onclick="openMemberSheet('na')">
+            <div
+              style="width:48px;height:48px;border-radius:12px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">
+              NA</div>
+            <div style="min-width:0">
+              <div style="font-size:16px;font-weight:600;color:var(--color-text-dark)">Nur Afifah Binti Kamaruzaman
+              </div>
+              <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age
+                30</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team eligibility rules -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+          <div style="font-size:16px;font-weight:500;color:var(--color-text-dark)">Team eligibility rules</div>
+          <span style="font-size:18px;color:var(--color-text-light)">&#8250;</span>
+        </div>
+
+        <!-- Team manager -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Team manager</div>
+          <div class="manager-details">
+            <div class="manager-detail"><span class="manager-detail__icon">&#128100;</span><span>Darren Ho Jun Le</span>
+            </div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#128222;</span><span>9856 6923</span></div>
+            <div class="manager-detail"><span class="manager-detail__icon">&#9993;</span><span>darrenho@email.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team details -->
+        <div
+          style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+          <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Team details</div>
+          <div class="form-group mb-8"><label class="form-label">Jersey colour – Light</label>
+            <div class="form-readonly">Grey</div>
+          </div>
+          <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+            <div class="form-readonly">Dark red</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom sheet for member details -->
+    <div class="bottom-sheet" id="member-sheet">
+      <div class="bottom-sheet__overlay" onclick="closeMemberSheet()"></div>
+      <div class="bottom-sheet__content" style="padding:0;max-height:90vh">
+        <div
+          style="position:sticky;top:0;background:#fff;z-index:1;display:flex;justify-content:flex-end;padding:16px 16px 0">
+          <button onclick="closeMemberSheet()"
+            style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--color-text-dark);padding:4px">&#10005;</button>
+        </div>
+        <div style="padding:0 20px;overflow-y:auto">
+          <h2 style="font-size:22px;font-weight:700;color:var(--color-text-dark);margin-bottom:12px">Member details</h2>
+          <div id="member-sheet-badge" style="margin-bottom:16px"></div>
+          <div id="member-sheet-fields"></div>
+          <hr class="divider">
+          <h3 style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Emergency contact
+          </h3>
+          <div id="member-sheet-emergency"></div>
+        </div>
+        <div
+          style="display:flex;gap:12px;padding:16px 20px;border-top:1px solid var(--color-border-light);background:#fff;position:sticky;bottom:0">
+          <button class="btn btn--secondary" style="flex:1" onclick="closeMemberSheet()">&#9998; Edit</button>
+          <button class="btn btn--secondary" style="flex:1;color:var(--color-error);border-color:var(--color-error)"
+            onclick="closeMemberSheet()">&#10005; Remove</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="shared/components.js"></script>
+  <script>
+    const memberData = {
+      ar: {
+        badge: '',
+        fields: [
+          ['Name of athlete', 'Abigail Rish Kanageswari D/o Loganathan'],
+          ['NRIC or FIN', 'S8082763B'],
+          ['Citizenship / Residency status', 'Singaporean Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '26 June 1980'],
+          ['Mobile number', '98566923'],
+          ['Email address', 'abigail.rish@email.com'],
+          ['Jersey number', '13']
+        ],
+        emergency: [
+          ['Full name', 'Loganathan Kandasamy'],
+          ['Relationship', 'Father'],
+          ['Mobile number', '980028125'],
+          ['Email address (optional)', '–']
+        ]
+      },
+      js: {
+        badge: '<span class="pill" style="color:var(--color-warning);border-color:var(--color-warning)">&#9888; Has not submitted indemnity</span>',
+        fields: [
+          ['Name of athlete', 'Jamie Sng Li Wei'],
+          ['NRIC or FIN', 'S9234567A'],
+          ['Citizenship / Residency status', 'Singapore Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '15 March 1984'],
+          ['Mobile number', '91234567'],
+          ['Email address', 'jamie.sng@email.com'],
+          ['Jersey number', '7']
+        ],
+        emergency: [
+          ['Full name', 'Sng Wei Liang'],
+          ['Relationship', 'Spouse'],
+          ['Mobile number', '92345678'],
+          ['Email address (optional)', 'weiliang@email.com']
+        ]
+      },
+      na: {
+        badge: '',
+        fields: [
+          ['Name of athlete', 'Abigail Rish Kanageswari D/o Loganathan'],
+          ['NRIC or FIN', 'S8082763B'],
+          ['Citizenship / Residency status', 'Singapore Citizen'],
+          ['Gender', 'Female'],
+          ['Date of birth', '12 July 1996'],
+          ['Mobile number', '99327476'],
+          ['Email address', 'abigail.rish@email.com'],
+          ['Jersey number', '10']
+        ],
+        emergency: [
+          ['Full name', 'Kamaruzaman'],
+          ['Relationship', 'Parent'],
+          ['Mobile number', '96615472'],
+          ['Email address (optional)', 'kamaruzaman@email.com']
+        ]
+      }
+    };
+
+    function renderFields(fields) {
+      return fields.map(([label, value]) =>
+        '<div style="margin-bottom:16px"><div class="form-label">' + label + '</div><div class="form-readonly" style="padding:4px 0">' + value + '</div></div>'
+      ).join('');
+    }
+
+    function openMemberSheet(id) {
+      const m = memberData[id];
+      if (!m) return;
+      document.getElementById('member-sheet-badge').innerHTML = m.badge;
+      document.getElementById('member-sheet-fields').innerHTML = renderFields(m.fields);
+      document.getElementById('member-sheet-emergency').innerHTML = renderFields(m.emergency);
+      document.getElementById('member-sheet').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMemberSheet() {
+      document.getElementById('member-sheet').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      PS.startTimer('timer-role', 15);
+      PS.startTimer('timer-form', 15);
+      PS.startTimer('timer-review', 8);
+    });
+  </script>
+</body>
+
+</html>

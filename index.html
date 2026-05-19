@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesta Sukan 2026 – Usability Test Prototypes</title>
+  <link rel="stylesheet" href="shared/styles.css">
+  <style>
+    .index-page {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    .index-page h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin-bottom: 4px;
+    }
+
+    .index-page .subtitle {
+      font-size: 14px;
+      color: var(--color-text-light);
+      margin-bottom: 32px;
+    }
+
+    .flow-card {
+      display: block;
+      padding: 20px;
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .flow-card:hover {
+      background: var(--color-bg-light);
+      border-color: var(--color-border);
+    }
+
+    .flow-card__number {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-text-light);
+      margin-bottom: 4px;
+    }
+
+    .flow-card__title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      margin-bottom: 4px;
+    }
+
+    .flow-card__desc {
+      font-size: 14px;
+      color: var(--color-text-medium);
+      line-height: 1.4;
+    }
+
+    .flow-card__tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="index-page">
+    <h1>Pesta Sukan 2026</h1>
+    <div class="subtitle">Usability Test Prototypes – Participant Portal</div>
+
+    <a href="individual-registration.html" class="flow-card">
+      <div class="flow-card__number">Flow 1</div>
+      <div class="flow-card__title">Individual Registration</div>
+      <div class="flow-card__desc">Adult registers themselves for Pickleball Men's Open Singles. Singpass pre-fills
+        personal details.</div>
+      <span class="flow-card__tag">8 screens</span>
+    </a>
+
+    <a href="parent-registration.html" class="flow-card">
+      <div class="flow-card__number">Flow 2</div>
+      <div class="flow-card__title">Parent Registers for Child</div>
+      <div class="flow-card__desc">Parent registers their child for Pickleball Girls' Youth U14 Singles. Child's details
+        entered manually, parent's pre-filled from Singpass.</div>
+      <span class="flow-card__tag">8 screens</span>
+    </a>
+
+    <a href="team-invite.html" class="flow-card">
+      <div class="flow-card__number">Flow 3</div>
+      <div class="flow-card__title">Team Invite (Join as Member)</div>
+      <div class="flow-card__desc">Invited member joins Team Rocket for Basketball 5v5 Women's Open via a shared link.
+      </div>
+      <span class="flow-card__tag">7 screens</span>
+    </a>
+
+    <a href="indemnity.html" class="flow-card">
+      <div class="flow-card__number">Flow 4</div>
+      <div class="flow-card__title">Acknowledge Indemnity</div>
+      <div class="flow-card__desc">Parent/guardian acknowledges indemnity form on behalf of a minor for Basketball 5v5
+        Women's Open.</div>
+      <span class="flow-card__tag">4 screens</span>
+    </a>
+
+    <a href="team-registration-desktop.html" class="flow-card">
+      <div class="flow-card__number">Flow 5</div>
+      <div class="flow-card__title">Team Registration (Desktop)</div>
+      <div class="flow-card__desc">Team manager registers a team for Basketball Women's Open 5v5 on desktop. Wider
+        layout.</div>
+      <span class="flow-card__tag">7 screens</span>
+    </a>
+
+    <a href="team-manager.html" class="flow-card">
+      <div class="flow-card__number">Flow 6</div>
+      <div class="flow-card__title">Team Manager – Your Games</div>
+      <div class="flow-card__desc">Team manager dashboard: view team status, manage members, view member details.</div>
+      <span class="flow-card__tag">5 screens</span>
+    </a>
+
+    <a href="view-schedule.html" class="flow-card">
+      <div class="flow-card__number">Flow 7</div>
+      <div class="flow-card__title">View Schedule</div>
+      <div class="flow-card__desc">Darren receives an email and views his registration and event details in "Your
+        games".</div>
+      <span class="flow-card__tag">4 screens</span>
+    </a>
+  </div>
+</body>
+
+</html>

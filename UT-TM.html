@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participant Usability Testing – Pesta Sukan 2026</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ========== SCREEN 1: MENU ========== -->
+    <div class="screen active" id="menu">
+      <div style="background:#FFF0F0;padding:48px 32px 40px;text-align:center">
+        <!-- Pesta Sukan logo -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:24px">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="13" stroke="#DB0000" stroke-width="1.5" />
+            <circle cx="14" cy="14" r="9" stroke="#DB0000" stroke-width="1" />
+            <circle cx="14" cy="14" r="4" fill="#DB0000" />
+            <line x1="14" y1="1" x2="14" y2="5" stroke="#DB0000" stroke-width="1.5" />
+            <line x1="14" y1="23" x2="14" y2="27" stroke="#DB0000" stroke-width="1.5" />
+            <line x1="1" y1="14" x2="5" y2="14" stroke="#DB0000" stroke-width="1.5" />
+            <line x1="23" y1="14" x2="27" y2="14" stroke="#DB0000" stroke-width="1.5" />
+          </svg>
+          <span style="font-size:14px;font-weight:700;letter-spacing:0.12em;color:#DB0000">PESTA SUKAN</span>
+        </div>
+        <h1 style="font-size:28px;font-weight:700;color:#1a1a1a;line-height:1.25;margin-bottom:12px">
+          Participant<br>Usability Testing</h1>
+        <p style="font-size:17px;color:#555">Team Managers</p>
+      </div>
+
+      <div style="background:#fff;padding:40px 32px;display:flex;flex-direction:column;gap:40px;align-items:center">
+        <button onclick="PS.goTo('activity-1')"
+          style="background:none;border:none;padding:0;font-size:18px;font-weight:600;color:#2563EB;text-decoration:underline;cursor:pointer">Activity
+          1a</button>
+        <button onclick="PS.goTo('activity-2')"
+          style="background:none;border:none;padding:0;font-size:18px;font-weight:600;color:#2563EB;text-decoration:underline;cursor:pointer">Activity
+          1b</button>
+        <button onclick="PS.goTo('activity-3')"
+          style="background:none;border:none;padding:0;font-size:18px;font-weight:600;color:#2563EB;text-decoration:underline;cursor:pointer">Activity
+          1c</button>
+        <button onclick="PS.goTo('activity-4')"
+          style="background:none;border:none;padding:0;font-size:18px;font-weight:600;color:#2563EB;text-decoration:underline;cursor:pointer">Activity
+          2</button>
+        <button onclick="PS.goTo('activity-5')"
+          style="background:none;border:none;padding:0;font-size:18px;font-weight:600;color:#2563EB;text-decoration:underline;cursor:pointer">Activity
+          3</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: ACTIVITY 1 ========== -->
+    <div class="screen" id="activity-1">
+      <div style="background:#FFF0F0;padding:40px 24px 32px">
+        <h1 style="font-size:32px;font-weight:700;color:#1a1a1a">Activity 1a</h1>
+      </div>
+
+      <div style="background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Scenario</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Imagine your name is Darren and you are a team
+            manager signing your basketball team up for this year’s Pesta Sukan competition. You and your team attended
+            last year's Pesta Sukan competition and you just received an email that this year's Pesta Sukan registration
+            has begun. </p>
+        </div>
+
+        <div style="border:1.5px solid #D0D0D0;border-radius:12px;padding:20px 20px">
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Activity</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Sign up for the Mens Open Basketball competition for
+            your team from the email.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+          <button onclick="window.location.href='team-registration-desktop.html'"
+            style="width:100%;padding:16px;background:#2563EB;color:#fff;font-size:17px;font-weight:600;border:none;border-radius:12px;cursor:pointer">Let's
+            start</button>
+          <button onclick="PS.goTo('menu')"
+            style="width:100%;padding:16px;background:#fff;color:#2563EB;font-size:17px;font-weight:600;border:2px solid #2563EB;border-radius:12px;cursor:pointer">Back
+            to menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 3: ACTIVITY 2 (placeholder) ========== -->
+    <div class="screen" id="activity-2">
+      <div style="background:#FFF0F0;padding:40px 24px 32px">
+        <h1 style="font-size:32px;font-weight:700;color:#1a1a1a">Activity 1b</h1>
+      </div>
+
+      <div style="background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
+        <div>
+
+        </div>
+
+        <div style="border:1.5px solid #D0D0D0;border-radius:12px;padding:20px 20px">
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Activity</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Fill in 2 team members information on your own.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+          <button onclick="window.location.href='team-add-member-manually.html'"
+            style="width:100%;padding:16px;background:#2563EB;color:#fff;font-size:17px;font-weight:600;border:none;border-radius:12px;cursor:pointer">Let's
+            start</button>
+          <button onclick="PS.goTo('menu')"
+            style="width:100%;padding:16px;background:#fff;color:#2563EB;font-size:17px;font-weight:600;border:2px solid #2563EB;border-radius:12px;cursor:pointer">Back
+            to menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 4: ACTIVITY 3 (placeholder) ========== -->
+    <div class="screen" id="activity-3">
+      <div style="background:#FFF0F0;padding:40px 24px 32px">
+        <h1 style="font-size:32px;font-weight:700;color:#1a1a1a">Activity 1c</h1>
+      </div>
+
+      <div style="background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Scenario</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Imagine you'd decided to send your team members a
+            link to fill in their own information instead.</p>
+        </div>
+
+        <div style="border:1.5px solid #D0D0D0;border-radius:12px;padding:20px 20px">
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Activity</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Go back to the team page and try that path. You
+            don't need to actually send anyone anything, just walk through what you'd do.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+          <button onclick="window.location.href='team-add-member-manually.html'"
+            style="width:100%;padding:16px;background:#2563EB;color:#fff;font-size:17px;font-weight:600;border:none;border-radius:12px;cursor:pointer">Let's
+            start</button>
+          <button onclick="PS.goTo('menu')"
+            style="width:100%;padding:16px;background:#fff;color:#2563EB;font-size:17px;font-weight:600;border:2px solid #2563EB;border-radius:12px;cursor:pointer">Back
+            to menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 5: ACTIVITY 4 (placeholder) ========== -->
+    <div class="screen" id="activity-4">
+      <div style="background:#FFF0F0;padding:40px 24px 32px">
+        <h1 style="font-size:32px;font-weight:700;color:#1a1a1a">Activity 2 (Mobile)</h1>
+      </div>
+
+      <div style="background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Scenario</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Imagine now on the flip side, you are a participant
+            and your team manager has signed your team up for a Pesta Sukan event and sent you this link to complete
+            your part.</p>
+        </div>
+
+        <div style="border:1.5px solid #D0D0D0;border-radius:12px;padding:20px 20px">
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Activity</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Log in to GMS to complete your registration.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+          <button onclick="window.location.href='team-invite.html'"
+            style="width:100%;padding:16px;background:#2563EB;color:#fff;font-size:17px;font-weight:600;border:none;border-radius:12px;cursor:pointer">Let's
+            start</button>
+          <button onclick="PS.goTo('menu')"
+            style="width:100%;padding:16px;background:#fff;color:#2563EB;font-size:17px;font-weight:600;border:2px solid #2563EB;border-radius:12px;cursor:pointer">Back
+            to menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 5: ACTIVITY 5 (placeholder) ========== -->
+    <div class="screen" id="activity-5">
+      <div style="background:#FFF0F0;padding:40px 24px 32px">
+        <h1 style="font-size:32px;font-weight:700;color:#1a1a1a">Activity 3 (Mobile)</h1>
+      </div>
+
+      <div style="background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Scenario</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Imagine you have registered a few teams for different
+            events.</p>
+        </div>
+
+        <div style="border:1.5px solid #D0D0D0;border-radius:12px;padding:20px 20px">
+          <div style="font-size:17px;font-weight:700;color:#C0392B;margin-bottom:10px">Activity</div>
+          <p style="font-size:17px;color:#1a1a1a;line-height:1.55">Find the page to see all the events that you have
+            registered your teams for.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+          <button onclick="window.location.href='team-manager.html'"
+            style="width:100%;padding:16px;background:#2563EB;color:#fff;font-size:17px;font-weight:600;border:none;border-radius:12px;cursor:pointer">Let's
+            start</button>
+          <button onclick="PS.goTo('menu')"
+            style="width:100%;padding:16px;background:#fff;color:#2563EB;font-size:17px;font-weight:600;border:2px solid #2563EB;border-radius:12px;cursor:pointer">Back
+            to menu</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .app -->
+  <script src="shared/components.js"></script>
+</body>
+
+</html>
