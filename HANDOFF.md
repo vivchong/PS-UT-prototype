@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder contains 6 interactive HTML/CSS/JS prototypes for usability testing of the Pesta Sukan 2026 Participant Portal registration flows. Each prototype is a self-contained HTML file that can be loaded on a phone or desktop browser.
+This folder contains 6 interactive HTML/CSS/JS prototypes for User Testing of the Pesta Sukan 2026 Participant Portal registration flows. Each prototype is a self-contained HTML file that can be loaded on a phone or desktop browser.
 
 **To run:** `cd prototype && python3 -m http.server 3456` then open `http://localhost:3456`
 
