@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acknowledge Indemnity – Pesta Sukan 2026</title>
 <link rel="stylesheet" href="shared/styles.css">
+<style>
+  .d-nav { display:flex; align-items:center; justify-content:space-between; padding:10px 24px; border-bottom:1px solid var(--color-border-light); background:#fff; }
+  .d-nav__logo { font-size:14px; font-weight:700; color:#DB0000; display:flex; align-items:center; gap:8px; text-transform:uppercase; letter-spacing:1px; }
+  .d-nav__links { display:flex; align-items:center; gap:16px; font-size:14px; color:var(--color-text-medium); }
+  .d-nav__avatar { width:32px; height:32px; border-radius:50%; background:var(--color-bg-light); border:1px solid var(--color-border); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:var(--color-text-medium); }
+  .d-summary-body { padding:16px; }
+</style>
 </head>
 <body>
 <div class="app">
@@ -172,11 +179,104 @@
 
 <!-- ========== SCREEN 4: SUCCESS ========== -->
 <div class="screen" id="success">
-  <div class="success-screen" data-success-next="landing">
+  <div class="success-screen" data-success-next="registration-details">
     <div class="success-screen__icon">&#9968;</div>
     <div class="success-screen__name">Indemnity submitted</div>
     <div class="success-screen__subtitle">for Jamie Sng Li Wei</div>
     <div class="success-screen__event">Basketball<br>5v5 Women's Open</div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 5: REGISTRATION DETAILS ========== -->
+<div class="screen" id="registration-details" style="padding-bottom:0">
+  <div class="comp-header" style="background:#fff">
+    <span></span>
+    <span class="comp-header__title">Pesta Sukan 2026</span>
+    <button class="comp-header__close">&#10005;</button>
+  </div>
+
+  <div style="background:var(--color-bg-light);padding:24px;text-align:center">
+    <div style="font-size:13px;color:var(--color-text-medium)">Team registration</div>
+    <div style="font-size:24px;font-weight:700;margin-top:4px">Team Rocket</div>
+    <div style="font-size:14px;color:var(--color-text-medium);margin-top:4px">Basketball 5v5 Women's Open</div>
+    <div style="font-size:12px;color:var(--color-text-light);margin-top:6px">Team ID: 002132</div>
+  </div>
+
+  <div class="d-summary-body">
+    <!-- CTA alert -->
+    <div style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+      <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:6px">Add at least <strong>6</strong> more members to your team!</div>
+      <div style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:var(--color-bg-light);color:var(--color-text-medium);margin-bottom:10px">By 14 June 2026</div>
+      <div style="font-size:14px;color:var(--color-text-medium);line-height:1.5">Each team must have 9 to 15 members.<br>Teams with <strong>fewer than 9 members</strong> after 14 June 2026 will be <strong>disqualified</strong> and refunded.</div>
+    </div>
+
+    <!-- Team members: 3 -->
+    <div style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div style="font-size:18px;font-weight:600;color:var(--color-text-dark)">Team members</div>
+        <div style="font-size:20px;font-weight:700;color:var(--color-text-dark)">3 <span style="font-weight:400;color:var(--color-text-light)">/ 9</span></div>
+      </div>
+      <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">3 of 9 min, 15 max</div>
+      <div class="team-progress-bar" style="margin:10px 0 16px">
+        <div class="team-progress-bar__fill" style="width:33%"></div>
+      </div>
+
+      <!-- Abigail (indemnity submitted) -->
+      <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:14px;display:flex;align-items:center;gap:14px;margin-bottom:12px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">AR</div>
+        <div style="min-width:0">
+          <div style="font-size:15px;font-weight:600;color:var(--color-text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Abigail Rish Kanageswari D/o Loganathan</div>
+          <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age 34</div>
+        </div>
+      </div>
+
+      <!-- Jamie (indemnity just submitted) -->
+      <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px">
+        <div style="background:#2E7D32;color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">&#10003; Indemnity submitted</div>
+        <div style="padding:14px;display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:10px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">JS</div>
+          <div style="min-width:0">
+            <div style="font-size:15px;font-weight:600;color:var(--color-text-dark)">Jamie Sng Li Wei</div>
+            <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age 42</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nur Afifah (has not submitted) -->
+      <div style="border:1px solid var(--color-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:16px">
+        <div style="background:var(--color-text-medium);color:#fff;font-size:13px;font-weight:500;padding:8px 14px;display:flex;align-items:center;gap:6px">&#9888; Has not submitted indemnity</div>
+        <div style="padding:14px;display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:10px;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--color-text-medium);flex-shrink:0">NA</div>
+          <div style="min-width:0">
+            <div style="font-size:15px;font-weight:600;color:var(--color-text-dark)">Nur Afifah Binti Kamaruzaman</div>
+            <div style="font-size:13px;color:var(--color-text-light);margin-top:2px">Female | Singapore citizen | Age 30</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn--secondary" style="margin-bottom:0">+ Add members manually</button>
+    </div>
+
+    <!-- Team manager -->
+    <div style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px">
+      <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Team manager</div>
+      <div class="manager-details">
+        <div class="manager-detail"><span class="manager-detail__icon">&#128100;</span><span>Darren Ho Jun Le</span></div>
+        <div class="manager-detail"><span class="manager-detail__icon">&#128222;</span><span>9856 6923</span></div>
+        <div class="manager-detail"><span class="manager-detail__icon">&#9993;</span><span>darrenho@email.com</span></div>
+      </div>
+    </div>
+
+    <!-- Team details -->
+    <div style="background:#fff;border:1px solid var(--color-border-light);border-radius:var(--radius-lg);padding:20px;margin-bottom:32px">
+      <div style="font-size:16px;font-weight:600;color:var(--color-text-dark);margin-bottom:14px">Team details</div>
+      <div class="form-group mb-8"><label class="form-label">Jersey colour – Light</label>
+        <div class="form-readonly">Grey</div>
+      </div>
+      <div class="form-group mb-0"><label class="form-label">Jersey colour – Dark</label>
+        <div class="form-readonly">Dark red</div>
+      </div>
+    </div>
   </div>
 </div>
 
